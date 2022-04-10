@@ -3,9 +3,9 @@ const db = {
     comments : [
 
         {
-            imagen: "",
-            nombre: "",
-            texto: "",
+            imagen:'',
+            nombre: "Fender Stratocaster",
+            texto: "New Fender Stratocaster 2021",
         },
 
         {
