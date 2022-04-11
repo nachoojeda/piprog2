@@ -66,7 +66,7 @@ const db = {
     products : [
 
         {
-            imagen: src,
+            imagen:"",
             nombre: "",
             descripcion: "",
             fecha: 0
