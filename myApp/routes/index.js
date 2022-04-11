@@ -8,9 +8,6 @@ router.get('/error', function(req, res, next) {
   res.render('error', { title: 'Express' });
 });
 
-router.get('/headerLogueado', function(req, res, next) {
-  res.render('headerLogueado', { title: 'Express' });
-});
 
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
