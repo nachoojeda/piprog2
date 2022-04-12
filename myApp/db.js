@@ -63,17 +63,15 @@ const db = {
         },
     ],
 
-    products : [
-
-        {
-            imagen: src,
+    products : [ {
+            imagen: "/images/products/redStrat.jpeg",
             nombre: " Red Fender Stratocaster",
             descripcion: "Red Fender 2021, Drake's Version. Unlimited Edition",
             fecha: 11/04/2022
         },
 
         {
-            imagen: "",
+            imagen: "/images/products/fenderMustang.jpeg",
             nombre: "Light Blue Fender Stratocaster",
             descripcion: "Light Blue Ultimate design",
             fecha: 0
@@ -108,7 +106,7 @@ const db = {
         },
 
         {
-            imagen: "",
+            imagen: "/images/products/goldTelecaster.jpg",
             nombre: "Gold Fender Telecaster",
             descripcion: "Clasic guitar model",
             fecha: 23/03/1990
