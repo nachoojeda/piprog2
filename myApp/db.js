@@ -74,66 +74,60 @@ const db = {
 
         {
             imagen: "",
-            nombre: "",
-            descripcion: "",
+            nombre: "Light Blue Fender Stratocaster",
+            descripcion: "Light Blue Ultimate design",
             fecha: 0
         },
 
         {
             imagen: "",
-            nombre: "",
-            descripcion: "",
+            nombre: "Standard Fender Acoustic",
+            descripcion: "Acoustic Fender new 12 strings guitar. One of the most bought products",
+            fecha: 09/04/2022
+        },
+
+        {
+            imagen: "",
+            nombre: "Black Fender Stratocaster",
+            descripcion: "Most comnmon Stratrocaster. Time passes and still one of the most bought guitars in Fender's history",
+            fecha: 11/03/2022
+        },
+
+        {
+            imagen: "",
+            nombre: "Black stratocaster Gilmour edition",
+            descripcion: "The Black Strat is the nickname for a black Fender Stratocaster guitar played by David Gilmour of the progressive rock band Pink Floyd",
+            fecha: 11/04/2022
+        },
+
+        {
+            imagen: "",
+            nombre: "Black Fender acoustic",
+            descripcion: "Black Edition On. New acoustic guitar 2022 season",
+            fecha: 06/04/2022
+        },
+
+        {
+            imagen: "",
+            nombre: "Gold Fender Telecaster",
+            descripcion: "Clasic guitar model",
+            fecha: 23/03/1990
+        },
+
+        {
+            imagen: "",
+            nombre: "Light Blue Fender Mustang",
+            descripcion: ".ight Blue Fender Mustang Guitar, unique edition",
             fecha: 0
         },
 
         {
             imagen: "",
-            nombre: "",
-            descripcion: "",
-            fecha: 0
+            nombre: "Sunburst Orange Telecaster",
+            descripcion: "The most Famous guitar. Jhon Frusciante's main Guitar",
+            fecha: 22/03/2022
         },
 
-        {
-            imagen: "",
-            nombre: "",
-            descripcion: "",
-            fecha: 0
-        },
-
-        {
-            imagen: "",
-            nombre: "",
-            descripcion: "",
-            fecha: 0
-        },
-
-        {
-            imagen: "",
-            nombre: "",
-            descripcion: "",
-            fecha: 0
-        },
-
-        {
-            imagen: "",
-            nombre: "",
-            descripcion: "",
-            fecha: 0
-        },
-
-        {
-            imagen: "",
-            nombre: "",
-            descripcion: "",
-            fecha: 0
-        },
-
-        {
-            imagen: "",
-            nombre: "",
-            descripcion: "",
-            fecha: 0
-        },
     ],
 
     profile : {
