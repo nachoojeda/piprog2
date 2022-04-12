@@ -140,11 +140,4 @@ const db = {
     },
 };
 
-var usuarios = [
-    usuario1 = {
-        nombre: Nacho,
-        apellido: Ojeda,
-        
-    }
-]
 module.exports = db;

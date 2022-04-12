@@ -16,6 +16,12 @@
 
 
 /*====== Basics ======*/
+
+.xdxd {
+  height:100px;
+  width: auto;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -68,8 +74,8 @@ hr {
 
 /*====== Main Header ======*/
 .main-header {
-  padding: 15px 0;
-  background-color: var(--yellow);
+  padding: 5px 0;
+  background-color: var(--yello);
 }
 
 .main-header_home-link,
