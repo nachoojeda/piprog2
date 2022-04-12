@@ -3,77 +3,32 @@ const db = {
     comments : [
 
         {
-            imagen:'',
-            nombre: "Fender Stratocaster",
+            fotoDePerfil:'',
+            nombre: "Juan Martinez ",
             texto: "New Fender Stratocaster 2021",
         },
 
         {
-            imagen: "",
-            nombre: "",
-            texto: "",
+            fotoDePerfil: "",
+            nombre: "Veronica Ojeda ",
+            texto: "Light Blue Fender",
         },
 
         {
-            imagen: "",
-            nombre: "",
-            texto: "",
+            fotoDePerfil: "",
+            nombre: "Gaspar Leveratto",
+            texto: "Fender Acoustic",
         },
 
-        {
-            imagen: "",
-            nombre: "",
-            texto: "",
-        },
-
-        {
-            imagen: "",
-            nombre: "",
-            texto: "",
-        },
-
-        {
-            imagen: "",
-            nombre: "",
-            texto: "",
-        },
-
-        {
-            imagen: "",
-            nombre: "",
-            texto: "",
-        },
-
-        {
-            imagen: "",
-            nombre: "",
-            texto: "",
-        },
-
-        {
-            imagen: "",
-            nombre: "",
-            texto: "",
-        },
-
-        {
-            imagen: "",
-            nombre: "",
-            texto: "",
-        },
+        
     ],
 
     products : [
 
-        {
-            imagen:"",
-            nombre: "",
-            descripcion: "",
-            fecha: 0
-        },
+    
 
         {
-            imagen: "",
+            imagen: "/images/products/fenderMustang.jpeg",
             nombre: "Light Blue Fender Stratocaster",
             descripcion: "Light Blue Ultimate design",
             fecha: 0
@@ -108,7 +63,7 @@ const db = {
         },
 
         {
-            imagen: "",
+            imagen: "/images/products/goldTelecaster.jpg",
             nombre: "Gold Fender Telecaster",
             descripcion: "Clasic guitar model",
             fecha: 23/03/1990
@@ -130,16 +85,41 @@ const db = {
 
     ],
 
-    profile : {
+    profile : [ 
+        
+        {
 
-        email: " ",
-        usuario: " ",
-        fecha: 0,
+        email: "jmartinez@gmail.com",
+        usuario: "Juan Martinez ",
+        fecha: 3/15/2022,
         foto: " ",
-        contrasenia: " ",
-        dni: 0,
+        contrasenia: "Martinez12345",
+        dni: 39466854,
 
     },
-};
+
+    {
+
+        email: "veronica@gmail.com",
+        usuario: "Veronica Ojeda ",
+        fecha: 4/8/2011,
+        foto: " ",
+        contrasenia: "vero6789",
+        dni: 40877234,
+
+    },
+    {
+
+        email: "jmartinez@gmail.com",
+        usuario: "Gaspar Leverato",
+        fecha: 3/15/2019,
+        foto: " ",
+        contrasenia: "98172833",
+        dni: 42777623,
+
+    },
+    
+
+    ]};
 
 module.exports = db;

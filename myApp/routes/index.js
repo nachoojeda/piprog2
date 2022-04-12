@@ -13,7 +13,6 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-
 router.get('/product-add', function(req, res, next) {
   res.render('product-add', { title: 'Express' });
 });
