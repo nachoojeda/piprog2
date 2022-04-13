@@ -1,8 +1,8 @@
-const guitarras = require('../db')
+const db = require('../db')
 const controller = {
     index: function (req,res) {
-        let iguitarras = guitarras
-res.render('index', {guitarras})
+        let iguitarras = db.products
+res.render('index', {iguitarras})
     },
   login: function (req,res) {
       res.render('login');
@@ -12,6 +12,6 @@ res.render('index', {guitarras})
       
   },
   profile: function (req,res) {
-      res.render('profile')
+      res.render('profile', db.profile)
   }
 }

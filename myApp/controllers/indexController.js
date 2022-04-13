@@ -11,7 +11,7 @@ const controller = {
         res.render('register');
     },
     searchresults : function(req, res) {
-        res.render('search-results', { guitars: db });
+        res.render('search-results', { guitars: db.products });
          },
 }
 //console.log(db.products)}
