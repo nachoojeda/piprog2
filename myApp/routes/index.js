@@ -2,7 +2,7 @@ const { application } = require('express');
 var express = require('express');
 //const controller = require('../controllers/productController');
 var router = express.Router();
-const iController = require('../controllers/indexController');
+//const controller = require('../controllers/indexController');
 const controller = require('../controllers/productController');
 
 /* GET home page. */
@@ -12,7 +12,7 @@ router.get('/error', function(req, res, next) {
 });
 
 
-router.get('/', controller.index);
+router.get('/',  controller.index);
 
 router.get('/product-add', controller.productAdd);
 
