@@ -5,16 +5,20 @@ const controller = {
         let iguitarras = db.products
         res.render('index', {iguitarras})
     },
-    login: function (req, res) {
-        res.render('login');
+    login: function(req, res, next) {
+        res.render('login', { title: 'Express' });
+      
     },
-    register: function (req, res) {
-        res.render('register')
-
+    register: function(req, res, next) {
+        res.render('register', { title: 'Express' });
     },
-    profile: function (req, res) {
-        res.render('profile', db.profile)
-    }
+    profile: function(req, res, next) {
+        res.render('profile', { title: 'Express' } + db.profile);
+    
+    },
+    profileEdit : function(req, res, next) {
+        res.render('profile-edit', { title: 'Express' });
+      },
 }
 
 module.exports = controller;

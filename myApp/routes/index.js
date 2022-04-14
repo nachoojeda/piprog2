@@ -1,6 +1,9 @@
 const { application } = require('express');
 var express = require('express');
+//const controller = require('../controllers/productController');
 var router = express.Router();
+const iController = require('../controllers/indexController');
+const controller = require('../controllers/productController');
 
 /* GET home page. */
 
@@ -9,21 +12,13 @@ router.get('/error', function(req, res, next) {
 });
 
 
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router.get('/', controller.index);
 
-router.get('/product-add', function(req, res, next) {
-  res.render('product-add', { title: 'Express' });
-});
+router.get('/product-add', controller.productAdd);
 
-router.get('/product', function(req, res, next) {
-  res.render('product', { title: 'Express' });
-});
+router.get('/product', controller.products );
 
-router.get('/search-results', function(req, res, next) {
-  res.render('search-results', { title: 'Express' });
-});
+router.get('/search-results', controller.searchresults);
 
 
 module.exports = router;

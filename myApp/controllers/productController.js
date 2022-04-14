@@ -5,6 +5,15 @@ const controller = {
         res.render('Product',  {'listadoGuitarra': db.products})
        
     },
+    productAdd: function(req, res, next) {
+        res.render('product-add', { title: 'Express' } + db.products);
+      },
+      products: function(req, res, next) {
+        res.render('product', { title: 'Express' } + db.products);
+      },
+      searchresults : function(req, res, next) {
+        res.render('search-results', { title: 'Express' } + db.products);
+      },
     login: function (req, res) {
         res.render('login')
     },
