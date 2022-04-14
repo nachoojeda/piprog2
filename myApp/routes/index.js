@@ -12,7 +12,7 @@ router.get('/error', function(req, res, next) {
 });
 
 
-router.get('/',  controller.index);
+router.get('/', controller.index);
 
 router.get('/product-add', controller.productAdd);
 
