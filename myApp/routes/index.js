@@ -12,13 +12,18 @@ router.get('/error', function(req, res, next) {
 });
 
 
-router.get('/', controller.index);
+router.get('/product', function(req, res, next) {
+  res.render('product', { title: 'Express' });
+});
 
-router.get('/product-add', controller.productAdd);
 
-router.get('/product', controller.products );
+router.get('/search-result', function(req, res, next) {
+  res.render('search-result', { title: 'Express' });
+});
 
-router.get('/search-results', controller.searchresults);
 
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
 
 module.exports = router;
