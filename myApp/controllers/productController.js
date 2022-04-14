@@ -12,3 +12,5 @@ const controller = {
         res.render('register')
     }
 }
+
+module.exports = controller;
