@@ -6,7 +6,7 @@ const controller = require('../controllers/productController');
 /* GET home page. */
 
 router.get('/', controller.index);
-router.get('/products', controller.products)
+router.get('/product', controller.products)
 router.get('/product-add', controller.productAdd)
 router.get('/search-results', controller.searchresults);
 
