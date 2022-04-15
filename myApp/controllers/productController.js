@@ -1,7 +1,7 @@
 const db = require('../db')
 const controller = {
     index: function (req, res) {
-        let iguitarras = db.products
+      let iguitarras = db.products
         res.render('Product',  {'listadoGuitarra': db.products})
        
     },

@@ -1,24 +1,17 @@
-const { application } = require('express');
-var express = require('express');
-//const controller = require('../controllers/productController');
-var router = express.Router();
+const express = require('express');
+
+const router = express.Router();
 const iController = require('../controllers/indexController');
-const controller = require('../controllers/productController');
 
 /* GET home page. */
+
+router.get('/', iController.index);
+router.get('/login', iController.login)
+router.get('/register', iController.register)
+router.get('/search-results', iController.searchresults);
 
 router.get('/error', function(req, res, next) {
   res.render('error', { title: 'Express' });
 });
-
-
-router.get('/', controller.index);
-
-router.get('/product-add', controller.productAdd);
-
-router.get('/product', controller.products );
-
-router.get('/search-results', controller.searchresults);
-
 
 module.exports = router;
