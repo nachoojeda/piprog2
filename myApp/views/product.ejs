@@ -8,13 +8,15 @@
 	<!-- /Header -->
 	<%- include('./partials/headerDeslogueado')  %> 
 	<!-- product detail -->
+	<% for (let i = 0; i < productos.length; i++) { %>
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title">Nombre del producto</h2> 
+			<h2 class="products-title"><%= productos[i].nombre  %> </h2> 
 			<p class="product-detail-description">
-				<a href="/product-add">Editar</a>
+				<a href="/product/product-add">Editar</a>
 			</p>
 		</div>
+		<% } %>
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
@@ -38,7 +40,7 @@
 							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="/profile">Nombre usuario: </a> </strong>
+									<strong> <a href="/users/profile">Nombre usuario: </a> </strong>
 									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur.</p>
 							</div>
 						</article>
@@ -46,7 +48,7 @@
 							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="/profile">Nombre usuario: </a> </strong>
+									<strong> <a href="/users/profile">Nombre usuario: </a> </strong>
 									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit.
 									</p>
 							</div>
@@ -55,7 +57,7 @@
 							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="/profile">Nombre usuario: </a> </strong>
+									<strong> <a href="/users/profile">Nombre usuario: </a> </strong>
 									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet.</p>
 							</div>
 						</article>
@@ -63,7 +65,7 @@
 							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="/profile">Nombre usuario: </a> </strong>
+									<strong> <a href="/users/profile">Nombre usuario: </a> </strong>
 									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit.
 									Tempora doloribus enim aspernatur fugit corrupti suscipit sit dolore</p>
 							</div>

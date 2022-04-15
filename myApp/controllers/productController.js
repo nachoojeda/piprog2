@@ -17,7 +17,7 @@ const controller = { //objetos literales
         res.render('register')
     },
     products: function (req,res) {
-      res.render('products', {productos: db.products})
+      res.render('product', {productos: db.products})
   }
 }
 module.exports = controller;

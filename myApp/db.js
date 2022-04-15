@@ -63,7 +63,7 @@ const db = {
         },
 
         {
-            imagen: "/images/products/goldTelecaster.jpg",
+            imagen: "/images/products/goldTelecaster.jpeg",
             nombre: "Gold Fender Telecaster",
             descripcion: "Clasic guitar model",
             fecha: 23/03/1990
