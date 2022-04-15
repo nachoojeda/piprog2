@@ -10,8 +10,8 @@ router.get('/product', controller.products)
 router.get('/product-add', controller.productAdd)
 router.get('/search-results', controller.searchresults);
 
-router.get('/error', function(req, res, next) {
-  res.render('error', { title: 'Express' });
+router.get('/error', function(req, res) {
+  res.render('error');
 });
 
 module.exports = router;
