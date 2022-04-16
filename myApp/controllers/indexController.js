@@ -16,5 +16,6 @@ const controller = {
     searchresults: function (req, res, next) {
         res.render('search-results', {productos: db.products});
     }
+    
 }
 module.exports = controller

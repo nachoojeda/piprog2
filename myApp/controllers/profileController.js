@@ -2,8 +2,7 @@ const db = require('../db')
 
 const controller = {
     index: function (req, res) {
-        let iguitarras = db.products
-        res.render('index', {iguitarras})
+        res.render('index', {db})
     },
     login: function(req, res, next) {
         res.render('login', { title: 'Express' });

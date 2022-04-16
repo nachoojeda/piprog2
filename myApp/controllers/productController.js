@@ -2,13 +2,13 @@ const db = require('../db')
 
 const controller = { //objetos literales
     index: function (req, res) {
-        res.render('index',  {productos: db.products}) 
+        res.render('index',   {productos: db.products,comments: db.comentarios}) 
     },
     productAdd: function(req,res) {
-        res.render('product-add', {productos: db.products});
+        res.render('product-add',  {productos: db.products,comments: db.comentarios});
       },
       searchresults : function(req,res) {
-        res.render('search-results', {productos: db.products});
+        res.render('search-results', {productos: db.products,comments: db.comentarios});
       },
     login: function (req,res) {
         res.render('login')
@@ -18,9 +18,8 @@ const controller = { //objetos literales
     },
     products: function (req,res) {
       
-      res.render('product', {productos: db.products})
-      
-  }
+      res.render('product', {productos: db.products, comments: db.comentarios})
+  },
 }
 
 

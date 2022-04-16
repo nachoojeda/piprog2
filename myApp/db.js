@@ -1,23 +1,23 @@
 const db = {
 
-    comments : [
+   comentarios : [
 
         {
             fotoDePerfil:'/images/users/juanMartinez.jpeg',
             nombre: "Juan Martinez ",
-            texto: "New Fender Stratocaster 2021",
+            texto: "Muy buena guitarra, super recomendable",
         },
 
         {
             fotoDePerfil: "/images/users/veronica.jpeg",
             nombre: "Veronica Ojeda ",
-            texto: "Light Blue Fender",
+            texto: "Me gusto simple de tocar.",
         },
 
         {
             fotoDePerfil: "/images/users/gasparLeveratto.png",
             nombre: "Gaspar Leveratto",
-            texto: "Fender Acoustic",
+            texto: "Vino fallada, me atendieron muy bien, pude solucionar el problema",
         },
 
         
