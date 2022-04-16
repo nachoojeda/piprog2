@@ -24,7 +24,7 @@
 				<article class="col-12 col-lg-8 product-detail-info">
 					<img src="<%=productos[i].imagen %>" alt="" class="product-detail-img">
 					<p class="product-detail-description">
-						<%=productos[i].descripcion  %>
+						<%=productos[i].descripcion %>
 						</p>
 				</article>
 
@@ -33,7 +33,7 @@
 
 				<% for (let i = 0; i < comments.length ; i++) { %>
 					<section class="comments">
-					<a href="./profile.ejs">
+					<a href="/users/profiles">
 						<article > 
 							<img src= <%= comments[i].fotoDePerfil %>  alt="">
 							<div class="data"> 
