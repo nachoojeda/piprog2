@@ -31,18 +31,19 @@
 				<% } %>
 				<div class="col-12 col-lg-4">
 
-					<% for (let i = 0; i < comments.length ; i++) { %>
+				<% for (let i = 0; i < comments.length ; i++) { %>
 					<section class="comments">
-						<article>
+					<a href="./profile.ejs">
+						<article > 
 							<img src= <%= comments[i].fotoDePerfil %>  alt="">
-							<div class="data">
+							<div class="data"> 
 								<p class="user">
-								<strong> <a href="../views/profile.ejs"><%= comments[i].nombre %> </a> </strong>
+								<strong><%= comments[i].nombre %> </a> </strong>
 							<%= comments[i].texto %> </p>
 							</div>
 						</article>
 						<% } %>
-					
+					</a>
 					</section>
 					<form class="form" action="" method="POST">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
