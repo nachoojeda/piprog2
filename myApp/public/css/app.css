@@ -57,6 +57,10 @@ a:hover{
   color: rgba(103, 203, 177, 0.8);
 }
 
+.main-header a:hover{
+  color: white;
+}
+
 figure {
   margin: 0;
   padding: 0;
@@ -81,6 +85,7 @@ hr {
 .main-header {
   padding: 5px 0;
   background-color: var(--wh);
+  background-color: rgba(103, 203, 177, 0.8);
 }
 
 .main-header_home-link,
@@ -275,6 +280,8 @@ hr {
   background-color: #ffffff;
   padding: 20px 0;
   margin-top: 80px;
+  background-color: rgba(103, 203, 177, 0.8)
+
 }
 
 .footer-data {
@@ -282,7 +289,7 @@ hr {
 }
 
 .footer-data i {
-  color: var(--light-blue);
+  color: var(--black);
   font-size: 3.5em;
 }
 
