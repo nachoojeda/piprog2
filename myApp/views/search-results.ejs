@@ -13,29 +13,31 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Resultados de búsqueda</h2>
+				<h2 class="products-title">Resultados: </h2>
 			</div>
-			<!-- Show the "ultimos" products -->
-			<% for (let i = 0; i < 1; i++) { %>
-	<div class="container products-wrapper">
-		<div class="d-flex align-items-center">
-			<h2 class="products-title"><%=productos[i].nombre  %></h2>
-			<p class="product-detail-description">
-				<a href="/product/product-add">Editar</a>
-			</p>
 			
-		</div>
-		
-		<div class="product-detail">
-			<div class="row">
-				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="<%=productos[i].imagen %>" alt="" class="product-detail-img">
-					<p class="product-detail-description">
-						<%=productos[i].descripcion %>
-						</p>
-				</article>
+	
+					<!-- Show the "ultimos" products -->
+					
+					
+					<% for (let i = 0; i < 4; i++) { %>
+							<div class="col-12 col-sm-6 col-lg-3">
+							<section class="product-box">
+								<a href="/product/product">
+									<figure class="product-box_image">
+										<img src="<%=productos[i].imagen %> " alt="imagen de">
+									</figure>
+									<article class="product-box_data">
+										<h2> <%= productos[i].nombre  %> </h2>
+										<p><%=productos[i].descripcion %> </p>
+										<p><%=productos[i].fecha %></p>
+									</article>
+								</a>
+							</section>
+						</div>
+					<% } %>
 
-				<% } %>
+
 
 
 	<!-- footer -->
