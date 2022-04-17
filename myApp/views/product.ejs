@@ -33,7 +33,7 @@
 
 				<% for (let i = 0; i < comments.length ; i++) { %>
 					<section class="comments">
-					<a href="/users/profiles">
+					<a href="/users/profile">
 						<article > 
 							<img src= <%= comments[i].fotoDePerfil %>  alt="">
 							<div class="data"> 
@@ -45,7 +45,7 @@
 						<% } %>
 					</a>
 					</section>
-					<form class="form" action="" method="POST">
+					<form class="form" action="" method="post">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>
