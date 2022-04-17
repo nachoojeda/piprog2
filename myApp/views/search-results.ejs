@@ -16,10 +16,26 @@
 				<h2 class="products-title">Resultados de búsqueda</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá van los resultados de búsqueda. <br>
-			Eliminen estás líneas y cosntruyan la página de resultados de búsqueda. <br>
-			////////////////
-			</h2>
+			<% for (let i = 0; i < 1; i++) { %>
+	<div class="container products-wrapper">
+		<div class="d-flex align-items-center">
+			<h2 class="products-title"><%=productos[i].nombre  %></h2>
+			<p class="product-detail-description">
+				<a href="/product/product-add">Editar</a>
+			</p>
+			
+		</div>
+		
+		<div class="product-detail">
+			<div class="row">
+				<article class="col-12 col-lg-8 product-detail-info">
+					<img src="<%=productos[i].imagen %>" alt="" class="product-detail-img">
+					<p class="product-detail-description">
+						<%=productos[i].descripcion %>
+						</p>
+				</article>
+
+				<% } %>
 
 
 	<!-- footer -->

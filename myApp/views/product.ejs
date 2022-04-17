@@ -24,27 +24,28 @@
 				<article class="col-12 col-lg-8 product-detail-info">
 					<img src="<%=productos[i].imagen %>" alt="" class="product-detail-img">
 					<p class="product-detail-description">
-						<%=productos[i].descripcion  %>
+						<%=productos[i].descripcion %>
 						</p>
 				</article>
 
 				<% } %>
 				<div class="col-12 col-lg-4">
 
-					<% for (let i = 0; i < comments.length ; i++) { %>
+				<% for (let i = 0; i < comments.length ; i++) { %>
 					<section class="comments">
-						<article>
+					<a href="/users/profile">
+						<article > 
 							<img src= <%= comments[i].fotoDePerfil %>  alt="">
-							<div class="data">
+							<div class="data"> 
 								<p class="user">
-								<strong> <a href="../views/profile.ejs"><%= comments[i].nombre %> </a> </strong>
+								<strong><%= comments[i].nombre %> </a> </strong>
 							<%= comments[i].texto %> </p>
 							</div>
 						</article>
 						<% } %>
-					
+					</a>
 					</section>
-					<form class="form" action="" method="POST">
+					<form class="form" action="" method="post">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>

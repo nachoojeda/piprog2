@@ -1,7 +1,7 @@
 const db = require("../db");
 
 const controller = {
-    index: function (req, res, next) {
+    index: function (req, res) {
         res.render('index', {productos: db.products});
     },
     login: function (req, res) {
@@ -13,7 +13,7 @@ const controller = {
     products: function (req, res) {
         res.render('products', {productos: db.products})
     },
-    searchresults: function (req, res, next) {
+    searchresults: function (req, res) {
         res.render('search-results', {productos: db.products});
     }
     
