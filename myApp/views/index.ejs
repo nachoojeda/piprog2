@@ -1,15 +1,16 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
 
-<%- include('./partials/head')  %> 
+<%- include('./partials/head')  %>
+
 <body>
 	<!-- Header -->
 
-	<%- include('./partials/headerDeslogueado')  %> 
-	
+	<%- include('./partials/headerDeslogueado')  %>
+
 	<!-- /Header -->
-	
+
 	<!-- Banner -->
 	<div class="banner">
 		<img src="" alt="">
@@ -22,29 +23,30 @@
 			<div class="col-12">
 				<h2 class="products-title">Novedades</h2>
 			</div>
-			
-	
-					<!-- Show the "ultimos" products -->
-					
-					
-					<% for (let i = 0; i < productos.length; i++) { %>
-							<div class="col-12 col-sm-6 col-lg-3">
-							<section class="product-box">
-								<a href="/product/product">
-									<figure class="product-box_image">
-										<img src="<%=productos[i].imagen %> " alt="imagen de">
-									</figure>
-									<article class="product-box_data">
-										<h2> <%= productos[i].nombre  %> </h2>
-										<p><%=productos[i].descripcion %> </p>
-										<p><%=productos[i].fecha %></p>
-									</article>
-								</a>
-							</section>
-						</div>
-					<% } %>
-	<!-- footer -->
-	<%- include('./partials/footer')  %> 
-	<!-- /footer -->
-</body>	
+
+
+			<!-- Show the "ultimos" products -->
+
+
+			<% for (let i = 0; i < productos.length; i++) { %>
+			<div class="col-12 col-sm-6 col-lg-3">
+				<section class="product-box">
+					<a href="/product/product">
+						<figure class="product-box_image">
+							<img src="<%=productos[i].imagen %> " alt="imagen de">
+						</figure>
+						<article class="product-box_data">
+							<h2> <%= productos[i].nombre  %> </h2>
+							<p><%=productos[i].descripcion %> </p>
+							<p><%=productos[i].fecha %></p>
+						</article>
+					</a>
+				</section>
+			</div>
+			<% } %>
+			<!-- footer -->
+			<%- include('./partials/footer')  %>
+			<!-- /footer -->
+</body>
+
 </html>
