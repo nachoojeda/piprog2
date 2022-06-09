@@ -28,6 +28,7 @@ const db = {
 
 
         {
+            
             imagen: "/images/products/fenderMustang.jpeg",
             nombre: "Light Blue Fender Mustang",
             descripcion: "Light Blue Ultimate design",
