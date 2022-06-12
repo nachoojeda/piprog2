@@ -1,5 +1,3 @@
-drop database movies_db;
-drop database moviesdb;
 drop database db_piprog2;
 use db ;
 create database db;
