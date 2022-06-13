@@ -4,15 +4,15 @@ USE esquema;
 
 /*Creando Tablas*/
 
-CREATE TABLE `esquema`.`products` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `titulo` VARCHAR(50) NOT NULL,
-  `descripcion` VARCHAR(500) NOT NULL,
-  `foto` VARCHAR(300) NOT NULL,
-  PRIMARY KEY (`id`));
+CREATE TABLE products (
+  id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  titulo VARCHAR(50) NOT NULL,
+  descripcion VARCHAR(500) NOT NULL,
+  foto VARCHAR(300) NOT NULL,
+   );
 
 CREATE TABLE users (
-id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
 nombre VARCHAR(50) NOT NULL,
 apellido VARCHAR(50) NOT NULL,
 email VARCHAR(100) NOT NULL,
@@ -25,27 +25,43 @@ dni INT NOT NULL
 
 CREATE TABLE `esquema`.`comments` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id_producto` INT UNSIGNED NOT NULL,
   `nombre` VARCHAR(50) NOT NULL,
   `texto` VARCHAR(500) NOT NULL,
   `foto` VARCHAR(300) NOT NULL,
   PRIMARY KEY (`id`)
+
+  FOREIGN KEY ( `id_producto`) REFERENCES products(id),
   );
 
   /*Creando Tablas Pivot*/
 
-  CREATE TABLE `esquema`.`users_comments` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `id_users` INT NOT NULL,
-  `id_comments` INT NOT NULL,
-  PRIMARY KEY (`id`));
+ CREATE TABLE users_comments (
 
-  CREATE TABLE `esquema`.`users_products` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `id_user` INT NOT NULL,
-  `id_product` INT NOT NULL,
-  PRIMARY KEY (`id`));
+  id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  id_users INT UNSIGNED NOT NULL,
+  id_comments INT UNSIGNED NOT NULL, 
+  createdAt DATE NOT NULL, 
+  updatedAt DATE NOT NULL
+  
+  FOREIGN KEY (id_users) REFERENCES users(id),
+  FOREIGN KEY (id_comments) REFERENCES comments(id)
+  
+  ); 
 
 
+ CREATE TABLE users_products (
+
+  id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  id_users INT UNSIGNED NOT NULL,
+  id_products INT UNSIGNED NOT NULL, 
+  createdAt DATE NOT NULL, 
+  updatedAt DATE NOT NULL,
+  
+  FOREIGN KEY (id_users) REFERENCES users(id),
+  FOREIGN KEY (id_products) REFERENCES products(id)
+  
+  ); 
 
 /* Insertando Datos en Registros*/
 
@@ -96,6 +112,39 @@ INSERT INTO `esquema`.`users_products` (`id_user`, `id_product`) VALUES ('1', '3
 INSERT INTO `esquema`.`users_products` (`id_user`, `id_product`) VALUES ('2', '1');
 
 INSERT INTO `esquema`.`users_products` (`id_user`, `id_product`) VALUES ('3', '2');
+
+/*Agregando columnas createdAt y updatedAt*/
+
+ALTER TABLE users
+ADD createdAt DATE NULL
+
+ALTER TABLE users
+ADD updatedAt DATE NULL
+
+ALTER TABLE products
+ADD createdAt DATE NULL
+
+ALTER TABLE products
+ADD updatedAt DATE NULL
+
+ALTER TABLE comments
+ADD createdAt DATE NULL
+
+ALTER TABLE comments
+ADD updatedAt DATE NULL
+
+ALTER TABLE users_comments
+ADD createdAt DATE NULL
+
+ALTER TABLE users_comments
+ADD updatedAt DATE NULL
+
+ALTER TABLE users_products
+ADD createdAt DATE NULL
+
+ALTER TABLE users_products
+ADD updatedAt DATE NULL
+
 
 
 

@@ -40,6 +40,13 @@ module.exports = function (sequelize, dataTypes) {
 
         dni: {
             type: dataTypes.INTEGER
+        },
+
+        createdAt:{
+            type:dataTypes.DATE
+        },
+        updatedAt:{
+            type:dataTypes.DATE
         }
 
     };
@@ -47,7 +54,7 @@ module.exports = function (sequelize, dataTypes) {
     let config = {
 
         tableName: 'users',
-        timeStamps: false,
+        timeStamps: true,
         underscored: false
     } ;
 

@@ -19,6 +19,12 @@ module.exports = function (sequelize, dataTypes) {
 
         foto: {
             type: dataTypes.STRING
+        },
+        createdAt:{
+            type:dataTypes.DATE
+        },
+        updatedAt:{
+            type:dataTypes.DATE
         }
 
     };
@@ -26,7 +32,7 @@ module.exports = function (sequelize, dataTypes) {
     let config = {
 
         tableName: 'comments',
-        timeStamps: false,
+        timeStamps: true,
         underscored: false
     } ;
 

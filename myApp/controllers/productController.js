@@ -1,11 +1,11 @@
-const db = require('../db')
+//const db = require('../db')
 
 const controller = { //objetos literales
     index: function (req, res) {
-        res.render('index',   {productos: db.products,comments: db.comentarios}) 
+        //res.render('index',   {productos: db.products,comments: db.comentarios}) 
     },
     productAdd: function(req,res) {
-        res.render('product-add',  {productos: db.products,comments: db.comentarios});
+       // res.render('product-add',  {productos: db.products,comments: db.comentarios});
       },
       searchresults : function(req,res) {
         res.render('search-results', {productos: db.products,comments: db.comentarios});
@@ -18,7 +18,7 @@ const controller = { //objetos literales
     },
     products: function (req,res) {
       
-      res.render('product', {productos: db.products, comments: db.comentarios})
+      //res.render('product', {productos: db.products, comments: db.comentarios})
   },
 }
 

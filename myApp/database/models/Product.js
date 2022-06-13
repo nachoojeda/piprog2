@@ -19,16 +19,22 @@ module.exports = function (sequelize, dataTypes) {
 
         foto: {
             type: dataTypes.STRING
+        },
+        createdAt:{
+            type:dataTypes.DATE
+        },
+        updatedAt:{
+            type:dataTypes.DATE
         }
 
     };
 
     let config = {
 
-        tableName: 'product',
-        timeStamps: false,
-        underscored: false
-    } ;
+        tableName: 'products',
+        timeStamps: true,
+        underscored: true
+    } 
 
     const Product = sequelize.define(alias,cols,config);
     return Product
