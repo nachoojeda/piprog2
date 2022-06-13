@@ -1,4 +1,4 @@
-const db = require("../db");
+/*const db = require("../db");
 const controller = {
     index: function (req, res) {
         res.render('index', {
@@ -23,4 +23,22 @@ const controller = {
     }
 
 }
-module.exports = controller
+module.exports = controller */
+
+const db = require('../database/models');
+
+const product = db.Product;
+
+const indexController = {
+  index:(req,res) =>{
+    product.findAll()
+    .then(data=>{
+      return res.send(data)
+    })
+    .catch(error=>{
+      return res.send(error)
+    })
+  }
+}
+
+module.exports = indexController;

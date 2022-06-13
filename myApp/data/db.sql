@@ -11,9 +11,6 @@ CREATE TABLE `esquema`.`products` (
   `foto` VARCHAR(300) NOT NULL,
   PRIMARY KEY (`id`));
 
-
-
-
 CREATE TABLE users (
 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 nombre VARCHAR(50) NOT NULL,
