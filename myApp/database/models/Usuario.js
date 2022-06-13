@@ -1,14 +1,15 @@
 module.exports = function (sequelize, dataTypes) {
 
-    let alias = 'Product' ;
+    let alias = 'Usuario' ;
 
     let cols = {
 
-        id: {
-            autoIncrement: true, 
-            primaryKey: true,
-            type:dataTypes.INTEGER
+        id: { 
+             autoIncrement: true,
+             primaryKey: true,
+             type:dataTypes.INTEGER
         },
+
         nombre: {
             type: dataTypes.STRING
         },
@@ -42,9 +43,25 @@ module.exports = function (sequelize, dataTypes) {
             type: dataTypes.INTEGER
         },
 
+        productos: {
+            type: dataTypes.INTEGER
+
+        },
+
+        seguidores: {
+            type: dataTypes.INTEGER
+
+        },
+
+        comentarios: {
+            type: dataTypes.INTEGER
+
+        },
+
         createdAt:{
             type:dataTypes.DATE
         },
+
         updatedAt:{
             type:dataTypes.DATE
         }
@@ -53,11 +70,11 @@ module.exports = function (sequelize, dataTypes) {
 
     let config = {
 
-        tableName: 'users',
+        tableName: 'usuarios',
         timeStamps: true,
-        underscored: false
+        underscored: true
     } ;
 
-    const User = sequelize.define(alias,cols,config);
-    return User
+    const Usuario = sequelize.define(alias,cols,config);
+    return Usuario
 }

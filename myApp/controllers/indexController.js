@@ -27,11 +27,11 @@ module.exports = controller */
 
 const db = require('../database/models');
 
-const product = db.Product;
+const producto = db.Producto;
 
 const indexController = {
   index:(req,res) =>{
-    product.findAll()
+    producto.findAll()
     .then(data=>{
       return res.send(data)
     })

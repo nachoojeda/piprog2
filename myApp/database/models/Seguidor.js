@@ -1,6 +1,6 @@
 module.exports = function (sequelize, dataTypes) {
 
-    let alias = 'Product' ;
+    let alias = 'Seguidor' ;
 
     let cols = {
 
@@ -9,23 +9,24 @@ module.exports = function (sequelize, dataTypes) {
             primaryKey: true,
             type:dataTypes.INTEGER
         },
-        id_users : {
+        
+        id_usuario_seguidor: {
             type: dataTypes.INTEGER
         },
 
-        id_comments : {
+        id_usuario_seguido: {
             type: dataTypes.INTEGER
-        }
-
+        },
+       
     };
 
     let config = {
 
-        tableName: 'products',
+        tableName: 'seguidores',
         timeStamps: true,
         underscored: true
-    } 
+    } ;
 
-    const Product = sequelize.define(alias,cols,config);
-    return Product
+    const Seguidor = sequelize.define(alias,cols,config);
+    return Seguidor
 }

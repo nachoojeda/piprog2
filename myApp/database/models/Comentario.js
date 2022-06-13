@@ -1,6 +1,6 @@
 module.exports = function (sequelize, dataTypes) {
 
-    let alias = 'Product' ;
+    let alias = 'Comentario' ;
 
     let cols = {
 
@@ -9,16 +9,16 @@ module.exports = function (sequelize, dataTypes) {
             primaryKey: true,
             type:dataTypes.INTEGER
         },
-        titulo : {
+        texto: {
             type: dataTypes.STRING
         },
 
-        descripcion: {
-            type: dataTypes.STRING
+        id_usuario: {
+            type: dataTypes.INTEGER
         },
 
-        foto: {
-            type: dataTypes.STRING
+        id_producto: {
+            type: dataTypes.INTEGER
         },
         createdAt:{
             type:dataTypes.DATE
@@ -31,11 +31,11 @@ module.exports = function (sequelize, dataTypes) {
 
     let config = {
 
-        tableName: 'products',
+        tableName: 'comentarios',
         timeStamps: true,
         underscored: true
-    } 
+    } ;
 
-    const Product = sequelize.define(alias,cols,config);
-    return Product
+    const Comentario = sequelize.define(alias,cols,config);
+    return Comentario
 }

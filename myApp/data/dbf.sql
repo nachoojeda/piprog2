@@ -78,5 +78,20 @@ VALUES (DEFAULT, 'Fender Stratocaster','American Professional II','https://www.f
 INSERT INTO comentarios (id, texto, id_usuario, id_producto)
 VALUES (DEFAULT, 'Me encanta!',1, 1)
 
+INSERT INTO comentarios (texto, id_usuario, id_producto)
+VALUES ('Me gusto!',1, 1)
+
+INSERT INTO comentarios (texto, id_usuario, id_producto)
+VALUES ('Me encanta!',1, 1)
+
+/*Insertando datos en la tabla de seguidores*/
+
+INSERT INTO seguidores (id_usuario_seguidor, id_usuario_seguido) 
+VALUES ('1', '1');
+
+INSERT INTO seguidores (id_usuario_seguidor, id_usuario_seguido) 
+VALUES ('2', '2');
+
+
 
 
