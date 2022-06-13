@@ -1,152 +1,96 @@
-CREATE SCHEMA esquema;
+CREATE SCHEMA `catalogo` ;
 
-USE esquema;
+USE catalogo 
 
-/*Creando Tablas*/
+/*Creanddo tabla de usuarios*/
 
-CREATE TABLE products (
-  id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  titulo VARCHAR(50) NOT NULL,
-  descripcion VARCHAR(500) NOT NULL,
-  foto VARCHAR(300) NOT NULL,
-   );
+CREATE TABLE usuarios (
+id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+nombre			VARCHAR(50) NOT NULL ,
+apellido 		VARCHAR(50) NOT NULL ,
+email 			VARCHAR(50) NOT NULL ,
+usuario 		VARCHAR(50) NOT NULL ,
+fecha 			DATE 		NOT NULL,
+foto 			VARCHAR(300)NULL,
+contrasenia 	VARCHAR(50) NOT NULL,
+dni 			INT NOT NULL,
+productos 		INT NULL,
+seguidores 		INT NULL,
+comentarios		INT NULL,
+createdAt 		DATE NULL,
+updatedAt		DATE NULL
+)
 
-CREATE TABLE users (
-id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
-nombre VARCHAR(50) NOT NULL,
-apellido VARCHAR(50) NOT NULL,
-email VARCHAR(100) NOT NULL,
-usuario VARCHAR(50) NOT NULL,
-fecha DATE NOT NULL,
-foto VARCHAR(300) NULL,
-contrasenia VARCHAR(100) NOT NULL,
-dni INT NOT NULL
-);
+/*Creanddo tabla de productos*/
 
-CREATE TABLE `esquema`.`comments` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `id_producto` INT UNSIGNED NOT NULL,
-  `nombre` VARCHAR(50) NOT NULL,
-  `texto` VARCHAR(500) NOT NULL,
-  `foto` VARCHAR(300) NOT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE productos (
+id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+titulo VARCHAR(50) NOT NULL,
+descripcion VARCHAR(500) NOT NULL,
+foto VARCHAR(300) NOT NULL,
+id_usuario INT UNSIGNED NOT NULL,
+createdAt 		DATE NULL,
+updatedAt		DATE NULL,
 
-  FOREIGN KEY ( `id_producto`) REFERENCES products(id),
-  );
+FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
+)
 
-  /*Creando Tablas Pivot*/
+/*Creanddo tabla de comentarios*/
 
- CREATE TABLE users_comments (
+CREATE TABLE comentarios (
+id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+texto VARCHAR(500) NOT NULL,
+id_usuario INT UNSIGNED NOT NULL,
+id_producto INT UNSIGNED NOT NULL,
+createdAt 		DATE NULL,
+updatedAt		DATE NULL,
 
-  id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  id_users INT UNSIGNED NOT NULL,
-  id_comments INT UNSIGNED NOT NULL, 
-  createdAt DATE NOT NULL, 
-  updatedAt DATE NOT NULL
-  
-  FOREIGN KEY (id_users) REFERENCES users(id),
-  FOREIGN KEY (id_comments) REFERENCES comments(id)
-  
-  ); 
+FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
+FOREIGN KEY (id_producto) REFERENCES productos(id)
+)
 
+/*Creanddo tabla de seguidores*/
 
- CREATE TABLE users_products (
+CREATE TABLE seguidores (
+id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+id_usuario_seguidor INT UNSIGNED NOT NULL,
+id_usuario_seguido INT UNSIGNED NOT NULL,
 
-  id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  id_users INT UNSIGNED NOT NULL,
-  id_products INT UNSIGNED NOT NULL, 
-  createdAt DATE NOT NULL, 
-  updatedAt DATE NOT NULL,
-  
-  FOREIGN KEY (id_users) REFERENCES users(id),
-  FOREIGN KEY (id_products) REFERENCES products(id)
-  
-  ); 
+FOREIGN KEY (id_usuario_seguidor) REFERENCES usuarios(id),
+FOREIGN KEY (id_usuario_seguido) REFERENCES usuarios(id)
+)
 
-/* Insertando Datos en Registros*/
+/*Insertando datos en la tabla de usuarios*/
 
-/*users*/
-  INSERT INTO users (id,nombre,apellido,email,usuario,fecha,foto,contrasenia,dni)
-VALUES (DEFAULT, 'Nacho','Ojeda','no@udesa.com','nachoojeda','1999-03-20','https://elpais.com/cultura/2019/12/16/actualidad/1576491116_371875.html','12345','41605023') ;
+INSERT INTO usuarios (id,nombre, apellido, email, usuario, fecha, foto, contrasenia, dni, productos, seguidores, comentarios)
+VALUES (DEFAULT, 'Ignacio', 'Ojeda', 'io@udesa.com', 'IO35', '1999-03-20','https://es.wikipedia.org/wiki/John_Frusciante' , '123', '41605023', 1, 1, 1 )
 
-INSERT INTO users (id,nombre,apellido,email,usuario,fecha,foto,contrasenia,dni)
-VALUES (DEFAULT, 'Segundo','Benito','sb@udesa.com','segundobenito','2002-04-10','https://www.abc.es/cultura/cultural/abci-jimi-hendrix-jardin-delicias-202009230042_noticia.html','12345','41605789') ;
+INSERT INTO usuarios (id,nombre, apellido, email, usuario, fecha, foto, contrasenia, dni, productos, seguidores, comentarios)
+VALUES (DEFAULT, 'Segundo', 'Benito', 'sb@udesa.com', 'SB23', '2002-04-10','https://upload.wikimedia.org/wikipedia/commons/a/ae/Michael_Jordan_in_2014.jpg' , '12345', '43988584', 1, 1, 1 )
 
-INSERT INTO users (id,nombre,apellido,email,usuario,fecha,foto,contrasenia,dni)
-VALUES (DEFAULT, 'Franco','Ferraro','FF@udesa.com','francoferraro','2002-01-10','https://www.latercera.com/culto/2020/02/11/las-memorias-de-flea-acid-for-the-children/','12345','51634789') ;
+/*Insertando datos en la tabla de productos*/
 
-/*prodocuts*/
+INSERT INTO productos (id, titulo, descripcion, foto, id_usuario)
+VALUES (DEFAULT, 'Fender Stratocaster','American Professional II','https://www.fmicassets.com/Damroot/GuitarVertDesktopJpg/10001/0113900755_fen_ins_frt_1_rr.jpg', 1)
 
-INSERT INTO products (id,titulo,descripcion,foto)
-VALUES (DEFAULT, 'Fender Stratocaster','American Professional II','https://www.fmicassets.com/Damroot/GuitarVertDesktopJpg/10001/0113900755_fen_ins_frt_1_rr.jpg') ;
+/*Insertando datos en la tabla de comentarios*/
 
-INSERT INTO products (id,titulo,descripcion,foto)
-VALUES (DEFAULT, 'Fender Telecaster','American Ultra','https://www.fmicassets.com/Damroot/GuitarVertDesktopJpg/10001/0118032795_gtr_frt_001_rr.jpg') ;
+INSERT INTO comentarios (id, texto, id_usuario, id_producto)
+VALUES (DEFAULT, 'Me encanta!',1, 1)
 
-INSERT INTO products (id,titulo,descripcion,foto)
-VALUES (DEFAULT, 'Fender Jaguar','Vintera 60s','https://www.fmicassets.com/Damroot/GuitarVertDesktopJpg/10001/0149753305_gtr_frt_001_rr.jpg') ;
+INSERT INTO comentarios (texto, id_usuario, id_producto)
+VALUES ('Me gusto!',1, 1)
 
-/*comments*/
+INSERT INTO comentarios (texto, id_usuario, id_producto)
+VALUES ('Me encanta!',1, 1)
 
-INSERT INTO comments (id,nombre,texto,foto)
-VALUES (DEFAULT, 'Nacho','Muy buena!','https://elpais.com/cultura/2019/12/16/actualidad/1576491116_371875.html') ;
+/*Insertando datos en la tabla de seguidores*/
 
-INSERT INTO comments (id,nombre,texto,foto)
-VALUES (DEFAULT, 'Segundo','Muy mala!','https://www.abc.es/cultura/cultural/abci-jimi-hendrix-jardin-delicias-202009230042_noticia.html') ;
+INSERT INTO seguidores (id_usuario_seguidor, id_usuario_seguido) 
+VALUES ('1', '1');
 
-INSERT INTO comments (id,nombre,texto,foto)
-VALUES (DEFAULT, 'Franco','Preciosa!','https://www.latercera.com/culto/2020/02/11/las-memorias-de-flea-acid-for-the-children/') ;
-
-/*pivot user_comment*/
-
-INSERT INTO `esquema`.`users_comments` (`id_users`, `id_comments`) VALUES ('1', '1');
-
-INSERT INTO `esquema`.`users_comments` (`id_users`, `id_comments`) VALUES ('2', '2');
-
-INSERT INTO `esquema`.`users_comments` (`id_users`, `id_comments`) VALUES ('3', '3');
-
-/*pivot user_product*/
-
-INSERT INTO `esquema`.`users_products` (`id_user`, `id_product`) VALUES ('1', '3');
-
-INSERT INTO `esquema`.`users_products` (`id_user`, `id_product`) VALUES ('2', '1');
-
-INSERT INTO `esquema`.`users_products` (`id_user`, `id_product`) VALUES ('3', '2');
-
-/*Agregando columnas createdAt y updatedAt*/
-
-ALTER TABLE users
-ADD createdAt DATE NULL
-
-ALTER TABLE users
-ADD updatedAt DATE NULL
-
-ALTER TABLE products
-ADD createdAt DATE NULL
-
-ALTER TABLE products
-ADD updatedAt DATE NULL
-
-ALTER TABLE comments
-ADD createdAt DATE NULL
-
-ALTER TABLE comments
-ADD updatedAt DATE NULL
-
-ALTER TABLE users_comments
-ADD createdAt DATE NULL
-
-ALTER TABLE users_comments
-ADD updatedAt DATE NULL
-
-ALTER TABLE users_products
-ADD createdAt DATE NULL
-
-ALTER TABLE users_products
-ADD updatedAt DATE NULL
-
-
-
+INSERT INTO seguidores (id_usuario_seguidor, id_usuario_seguido) 
+VALUES ('2', '2');
 
 
 
