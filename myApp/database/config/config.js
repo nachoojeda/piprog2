@@ -2,10 +2,10 @@ module.exports = {
   "development": {
     "username": "root",
     "password": "root",
-    "database": "esquema",
+    "database": "catalogo",
     "host": "127.0.0.1",
-    "dialect": "mysql"
-   // "operatorsAliases": false
+    "dialect": "mysql",
+    // "operatorsAliases": false
   },
   "test": {
     "username": "root",

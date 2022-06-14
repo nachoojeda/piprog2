@@ -56,14 +56,6 @@ module.exports = function (sequelize, dataTypes) {
         comentarios: {
             type: dataTypes.INTEGER
 
-        },
-
-        createdAt:{
-            type:dataTypes.DATE
-        },
-
-        updatedAt:{
-            type:dataTypes.DATE
         }
 
     };
@@ -71,8 +63,8 @@ module.exports = function (sequelize, dataTypes) {
     let config = {
 
         tableName: 'usuarios',
-        timeStamps: true,
-        underscored: true
+        timeStamps: false,
+        underscored: false
     } ;
 
     const Usuario = sequelize.define(alias,cols,config);

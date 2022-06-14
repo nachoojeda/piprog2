@@ -19,12 +19,6 @@ module.exports = function (sequelize, dataTypes) {
 
         id_producto: {
             type: dataTypes.INTEGER
-        },
-        createdAt:{
-            type:dataTypes.DATE
-        },
-        updatedAt:{
-            type:dataTypes.DATE
         }
 
     };
@@ -32,7 +26,7 @@ module.exports = function (sequelize, dataTypes) {
     let config = {
 
         tableName: 'comentarios',
-        timeStamps: true,
+        timeStamps: false,
         underscored: true
     } ;
 

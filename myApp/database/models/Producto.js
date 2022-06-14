@@ -24,14 +24,6 @@ module.exports = function (sequelize, dataTypes) {
 
         id_usuario: {
             type:dataTypes.INTEGER
-        },
-
-        createdAt:{
-            type:dataTypes.DATE
-        },
-
-        updatedAt:{
-            type:dataTypes.DATE
         }
 
     };
@@ -39,7 +31,7 @@ module.exports = function (sequelize, dataTypes) {
     let config = {
 
         tableName: 'productos',
-        timeStamps: true,
+        timeStamps: false,
         underscored: true
     } ;
 
