@@ -23,7 +23,7 @@
 			<div class="col-12">
 				<h2 class="products-title">Novedades</h2>
 			</div>
-<h1>hola</h1>
+
 
 			<!-- Show the "ultimos" products -->
 
@@ -31,14 +31,13 @@
 			<% for (let i = 0; i < productos.length; i++) { %>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="/product/product/id/<%=productos[i].id%>">
+					<a href="/product/id/<%=productos[i].id%>">
 						<figure class="product-box_image">
-							<img src="<%=productos[i].imagen %> " alt="imagen de">
+							<img src="<%=productos[i].foto %> " alt="imagen de">
 						</figure>
 						<article class="product-box_data">
-							<h2> <%= productos[i].nombre  %> </h2>
+							<h2> <%= productos[i].titulo  %> </h2>
 							<p><%=productos[i].descripcion %> </p>
-							<p><%=productos[i].fecha %></p>
 						</article>
 					</a>
 				</section>
