@@ -33,20 +33,20 @@ const indexController = {
   index:(req,res) =>{
     producto.findAll()
     .then(data=>{
-      return res.send('index', {
+      return res.render('index', {
         productos: data})
     })
     .catch(error=>{
       return res.send(error)
     })
   },
-  show: (req,res) => {
+  /*show: (req,res) => {
     let id = req.params.id; 
    
     producto.findByPk(id).then(result=>{
         return res.send("product",  {producto: result});
     })
-  }
+  }*/
 } 
 
 module.exports = indexController;
