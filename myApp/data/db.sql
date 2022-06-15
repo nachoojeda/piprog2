@@ -93,23 +93,4 @@ INSERT INTO seguidores (id_usuario_seguidor, id_usuario_seguido)
 VALUES ('2', '2');
 
 
-/*ELiminando timeStamps de las tablas*/
-
-ALTER TABLE usuarios 
-DROP updatedAt
-
-ALTER TABLE usuarios 
-DROP createdAt
-
-ALTER TABLE productos 
-DROP updatedAt
-
-ALTER TABLE productos 
-DROP createdAt
-
-ALTER TABLE comentarios 
-DROP updatedAt
-
-ALTER TABLE comentarios 
-DROP createdAt
 

@@ -24,14 +24,19 @@ module.exports = function (sequelize, dataTypes) {
 
         id_usuario: {
             type:dataTypes.INTEGER
+        },
+        created_at: {
+            type:dataTypes.DATE
+        },
+        updated_at: {
+            type:dataTypes.DATE
         }
-
     };
 
     let config = {
 
         tableName: 'productos',
-        timeStamps: false,
+        timeStamps: true,
         underscored: true
     } ;
 
