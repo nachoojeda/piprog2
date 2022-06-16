@@ -74,7 +74,7 @@ INSERT INTO productos (id, titulo, descripcion, foto, id_usuario)
 VALUES (DEFAULT, 'Fender Stratocaster','American Professional II','https://www.fmicassets.com/Damroot/GuitarVertDesktopJpg/10001/0113900755_fen_ins_frt_1_rr.jpg', 1)
 
 INSERT INTO productos (id, titulo, descripcion, foto, id_usuario)
-VALUES (DEFAULT, 'Fender Stratocaster','Noventa','https://www.fmicassets.com/Damroot/GuitarVertDesktopJpg/10001/0140922357_fen_ins_frt_1_rr.jpg', 1)
+VALUES (DEFAULT, 'Fender Stratocaster','Noventa','https://www.fmicassets.com/Damroot/GuitarVertDesktopJpg/10001/0140922357_fen_ins_frt_1_rr.jpg', 1);
 
 INSERT INTO productos (id, titulo, descripcion, foto, id_usuario)
 VALUES (DEFAULT, 'Fender Telecaster','American Professional II Telecaster® Left-Hand','https://www.fmicassets.com/Damroot/GuitarVertDesktopJpg/10001/0113952718_fen_ins_frt_1_rl.jpg', 1)
@@ -82,10 +82,10 @@ VALUES (DEFAULT, 'Fender Telecaster','American Professional II Telecaster® Left
 /*Insertando datos en la tabla de comentarios*/
 
 INSERT INTO comentarios (id, texto, id_usuario, id_producto)
-VALUES (DEFAULT, 'Me encanta!',1, 1)
+VALUES (DEFAULT, 'Me encanta!',1, 1);
 
 INSERT INTO comentarios (texto, id_usuario, id_producto)
-VALUES ('Me gusto!',1, 1)
+VALUES ('Me gusto!',1, 1);
 
 INSERT INTO comentarios (texto, id_usuario, id_producto)
 VALUES ('Me encanta!',1, 1)
