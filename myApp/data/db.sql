@@ -17,8 +17,8 @@ dni 			INT NOT NULL,
 productos 		INT NULL,
 seguidores 		INT NULL,
 comentarios		INT NULL,
-createdAt 		DATE NULL,
-updatedAt		DATE NULL
+created_at 		DATE NULL,
+updated_at		DATE NULL
 )
 
 /*Creanddo tabla de productos*/
@@ -29,8 +29,8 @@ titulo VARCHAR(50) NOT NULL,
 descripcion VARCHAR(500) NOT NULL,
 foto VARCHAR(300) NOT NULL,
 id_usuario INT UNSIGNED NOT NULL,
-createdAt 		DATE NULL,
-updatedAt		DATE NULL,
+created_at 		DATE NULL,
+updated_at		DATE NULL,
 
 FOREIGN KEY (id_usuario) REFERENCES usuarios(id)
 )
@@ -42,8 +42,8 @@ id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
 texto VARCHAR(500) NOT NULL,
 id_usuario INT UNSIGNED NOT NULL,
 id_producto INT UNSIGNED NOT NULL,
-createdAt 		DATE NULL,
-updatedAt		DATE NULL,
+created_at 		DATE NULL,
+updated_at		DATE NULL,
 
 FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
 FOREIGN KEY (id_producto) REFERENCES productos(id)
@@ -100,3 +100,15 @@ VALUES ('2', '2');
 
 
 
+<% for (let i = 0; i < comments.length ; i++) { %>
+					<section class="comments">
+					<a href="/users/profile">
+						<article > 
+							<img src= <%= comments[i].fotoDePerfil %>  alt="">
+							<div class="data"> 
+								<p class="user">
+								<strong><%= comments[i].nombre %> </a> </strong>
+							<%= comments[i].texto %> </p>
+							</div>
+						</article>
+						<% } %>
