@@ -1,4 +1,4 @@
-CREATE SCHEMA `catalogo` ;
+CREATE SCHEMA catalogo ;
 
 USE catalogo 
 
@@ -73,8 +73,10 @@ VALUES (DEFAULT, 'Segundo', 'Benito', 'sb@udesa.com', 'SB23', '2002-04-10','http
 INSERT INTO productos (id, titulo, descripcion, foto, id_usuario)
 VALUES (DEFAULT, 'Fender Stratocaster','American Professional II','https://www.fmicassets.com/Damroot/GuitarVertDesktopJpg/10001/0113900755_fen_ins_frt_1_rr.jpg', 1)
 
+INSERT INTO productos (id, titulo, descripcion, foto, id_usuario)
 VALUES (DEFAULT, 'Fender Stratocaster','Noventa','https://www.fmicassets.com/Damroot/GuitarVertDesktopJpg/10001/0140922357_fen_ins_frt_1_rr.jpg', 1)
 
+INSERT INTO productos (id, titulo, descripcion, foto, id_usuario)
 VALUES (DEFAULT, 'Fender Telecaster','American Professional II Telecaster® Left-Hand','https://www.fmicassets.com/Damroot/GuitarVertDesktopJpg/10001/0113952718_fen_ins_frt_1_rl.jpg', 1)
 
 /*Insertando datos en la tabla de comentarios*/
