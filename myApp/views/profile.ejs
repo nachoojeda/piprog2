@@ -16,8 +16,8 @@
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<% for (let i = 0; i < 1 ; i++) { %>
-					<h1 class="main-title"><%= profile[i].usuario %> 
+					
+					<h1 class="main-title"><%= profile.usuario %> 
 						<a href="/users/profile-edit">
 							<i class="fas fa-cog"></i>
 						</a>
@@ -26,12 +26,8 @@
 				</div>
 				<div>
 					<ul class="">
-<<<<<<< HEAD
-						<li><%= profile[i].usuario %></li>
+						<li><%= profile.usuario %></li>
 						
-=======
-						<li> <%= profile[i].email %> </li>
->>>>>>> bc20e2372f7492845ef991ae7eccf60160a08e38
 						<li>8 productos</li>
 						<li>200 seguidores</li>
 						<li>300 comentarios</li>
@@ -40,7 +36,7 @@
 			</div>
 		</div>
 	</section>
-	<% } %>
+	
 	<!-- /Datos del usuario -->
 
 	<!-- Mis productos -->

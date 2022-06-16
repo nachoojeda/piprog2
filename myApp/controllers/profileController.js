@@ -1,4 +1,4 @@
-//const db = require('../db')
+/*const db = require('../db')
 
 const controller = {
     index: function (req, res) {
@@ -18,4 +18,45 @@ const controller = {
       },
 }
 
-module.exports = controller;
+module.exports = controller; */
+
+const db = require('../database/models');
+
+const usuario = db.Usuario;
+
+const profileController = {
+    
+    create: (req, res) => {
+    return res.render("register");
+  } ,
+
+  store: (req, res) => {
+
+    let info = req.body;
+    let user = {
+      nombre: info.nombre,
+      apellido: info.apellido,
+      email: info.email,
+      usuario: info.usuario,
+      fecha: info.fecha,
+      foto: info.foto,
+      contrasenia: info.contrasenia,
+      dni: info.dni
+    }
+     usuario.create(user) 
+    .then((result) => {
+      return res.redirect('/index')
+
+    }) 
+  },
+ /* edit: (req, res) => {
+    let id = req.params.id;
+    movie.findByPk(id).then((result) => {
+
+      return res.render("movieEdit", {
+        movie: result,
+      });
+    });
+  }*/ } 
+
+  module.exports = profileController

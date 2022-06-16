@@ -112,3 +112,19 @@ VALUES ('2', '2');
 							</div>
 						</article>
 						<% } %>
+
+
+
+
+						showOne : (req,res) => {
+    let buscada = req.query.pelicula;
+    movie.findOne({
+      where : 
+      /* { title : buscada} */
+      { title : {[op.like] : "%" + buscada
+      }}
+
+    }).then((result) => {
+      res.send(result)
+    })
+  }

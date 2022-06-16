@@ -21,24 +21,26 @@
 			<div class="wrapper fadeInDown">
 				<div id="formContent"> 
 				  <!-- Login Form -->
-				  <form class="form-register" action="" method="get">
+				  <form class="form-register" action="/users/register" method="POST">
 					  <br>
 				
-					<input type="text" id="login" class="fadeIn second" name="login" placeholder="Nombre de usuario">
-					<input type="email" id="login" class="fadeIn second" name="login" placeholder="Email">
-					<input type="password" id="password" class="fadeIn third" name="login" placeholder="Contraseña">
-					<input type="number" id="password" class="fadeIn third" name="login" placeholder="Numero de documento">
-					<input type="file" id="password" class="fadeIn third" name="login" placeholder="Foto de perfil">
-					<input type="date" id="password" class="fadeIn third" name="login" placeholder="Fecha de nacimiento">
-					
-					
-					
+					<input type="text" id="login" class="fadeIn second" name="nombre" placeholder="Nombre">
+					<input type="text" id="login" class="fadeIn second" name="apellido" placeholder="Apellido">
+					<input type="email" id="login" class="fadeIn second" name="email" placeholder="Email">
+					<input type="text" id="login" class="fadeIn second" name="usuario" placeholder="Nombre de usuario">
+					<input type="date" id="login" class="fadeIn third" name="fecha" placeholder="Fecha de nacimiento">
+					<input type="file" id="login" class="fadeIn third" name="foto" placeholder="Foto de perfil">
+					<input type="password" id="login" class="fadeIn third" name="contrasenia" placeholder="Contraseña">
+					<input type="number" id="login" class="fadeIn third" name="dni" placeholder="Numero de documento">
+
+					<div id="formFooter">
+						<button type="text" class="underlineHover">submit</button>
+					</div>
+
 				  </form>
 			  
 				  <!-- Remind Passowrd -->
-				  <div id="formFooter">
-					<a class="underlineHover" href="/users/profile">Ingresá</a>
-				  </div>
+				  
 			  
 				</div>
 			  </div>

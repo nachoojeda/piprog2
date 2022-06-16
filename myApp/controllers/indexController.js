@@ -29,6 +29,8 @@ const db = require('../database/models');
 
 const producto = db.Producto;
 
+const op = db.Sequelize.Op;
+
 const indexController = {
   index:(req,res) =>{
     producto.findAll()
@@ -39,7 +41,30 @@ const indexController = {
     .catch(error=>{
       return res.send(error)
     })
-  }
+  },
+
+  showOne : (req,res) => {
+    let busqueda = req.query.search;
+
+    producto.findOne({ 
+        where : [
+        {
+            titulo : {[op.like] : `%${busqueda}%` }
+        }
+
+    ]}
+
+   
+        
+    ) 
+    .then((result) => 
+    {
+        return res.render("search-results" , {productos : result})
+    })
+
+   
+    
 } 
+}
 
 module.exports = indexController;
