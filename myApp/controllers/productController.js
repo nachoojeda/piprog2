@@ -1,4 +1,4 @@
-//const db = require('../db')
+/*const db = require('../db')
 
 const controller = { //objetos literales
     index: function (req, res) {
@@ -20,8 +20,29 @@ const controller = { //objetos literales
       
       //res.render('product', {productos: db.products, comments: db.comentarios})
   },
-}
+}*/
+
+const db = require('../database/models');
+
+const producto = db.Producto;
+
+const productController = {
+  
+   show: (req,res) => {
+  let id = req.params.id; 
+ 
+  producto.findByPk(id)
+  .then(result=>{
+      return res.render("product", {productos: result});
+  })
+  .catch(error=>{
+    return res.send(error)
+  })
+} }
 
 
 
-module.exports = controller;
+
+
+
+module.exports = productController;

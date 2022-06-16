@@ -36,14 +36,6 @@ const indexController = {
       return res.render('index', {
         productos: data})
     })
-    
-  },
-  show: (req,res) => {
-    let id = req.params.id; 
-   
-    producto.findByPk(id).then(result=>{
-        return res.render("product",  {producto: result});
-    })
     .catch(error=>{
       return res.send(error)
     })

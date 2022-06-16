@@ -19,6 +19,6 @@ const indexController = require('../controllers/indexController');
 
 router.get('/', indexController.index);
 
-router.get('/id/:id', indexController.show);
+
 
 module.exports = router; 
