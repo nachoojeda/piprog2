@@ -50,20 +50,11 @@ const indexController = {
         where : [
         {
             titulo : {[op.like] : `%${busqueda}%` }
-        }
-
-    ]}
-
-   
-        
-    ) 
+        } ]}) 
     .then((result) => 
     {
         return res.render("search-results" , {productos : result})
     })
-
-   
-    
 } 
 }
 

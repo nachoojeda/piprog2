@@ -99,7 +99,7 @@ INSERT INTO seguidores (id_usuario_seguidor, id_usuario_seguido)
 VALUES ('2', '2');
 
 
-
+/* product.ejs */
 <% for (let i = 0; i < comments.length ; i++) { %>
 					<section class="comments">
 					<a href="/users/profile">
@@ -114,7 +114,7 @@ VALUES ('2', '2');
 						<% } %>
 
 
-
+/* productController.js */
 
 						showOne : (req,res) => {
     let buscada = req.query.pelicula;
@@ -128,3 +128,28 @@ VALUES ('2', '2');
       res.send(result)
     })
   }
+
+/* profile.ejs */
+
+  <div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Mis productos</h2>
+			</div>
+			<!-- Show mis productos -->
+			<% for (let i = 0; i < 5; i++) { %>
+				<div class="col-12 col-sm-6 col-lg-3">
+				<section class="product-box">
+					<a href="/product/product">
+						<figure class="product-box_image">
+							<img src="<%=productos[i].imagen %> " alt="imagen de">
+						</figure>
+						<article class="product-box_data">
+							<h2> <%= productos[i].nombre  %> </h2>
+							<p><%=productos[i].descripcion %> </p>
+							<p><%=productos[i].fecha %></p>
+						</article>
+					</a>
+				</section>
+			</div>
+		<% } %>
