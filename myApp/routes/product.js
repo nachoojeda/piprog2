@@ -31,7 +31,7 @@ router.post('/product-add', productController.store)
 
 router.get('/product-edit/:id', productController.edit)
 
-router.post('/product-edit/:id', productController.update)
+ router.post('/product-edit/:id', productController.update)
 
 router.get('/product-delete/:id', productController.destroy)
 
