@@ -21,22 +21,25 @@
 				<div class="wrapper fadeInDown">
 					<div id="formContent"> 
 					  <!-- Login Form -->
-					  <form class="form-register">
+
+
+					  <form class="form-register" action="/product/product-add" method="POST">
 						  <br>
 					
 						
-						<input type="text" id="login" class="fadeIn second" name="login" placeholder="Nombre">
-						<input type="text" id="password" class="fadeIn third" name="login" placeholder="Descripcion">
-						<input type="file" id="login" class="fadeIn second" name="login" placeholder="Imagen">
-						<input type="date" id="password" class="fadeIn third" name="login" placeholder="Fecha de carga">
+						<input type="text" id="add" class="fadeIn second" name="titulo" placeholder="Titulo">
+						<input type="text" id="add" class="fadeIn third" name="descripcion" placeholder="Descripcion">
+						<input type="text" id="add" class="fadeIn second" name="foto" placeholder="Introducir ruta absoluta de la foto">
+						<input type="date" id="add" class="fadeIn third" name="created_at" placeholder="Fecha de carga">
 						
-						
+						<div id="formFooter">
+							<button type="text" class="underlineHover">submit</button>
+						</div>
 					  </form>
 				  
 					  <!-- Remind Passowrd -->
-					  <div id="formFooter">
-						<a class="underlineHover" href="/users/profile">Agregar</a>
-					  </div>
+					
+
 				  
 					</div>
 				  </div>

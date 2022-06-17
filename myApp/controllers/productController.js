@@ -38,10 +38,35 @@ const productController = {
   .catch(error=>{
     return res.send(error)
   })
-} }
+}  ,
 
+create: (req, res) => {
+  return res.render('product-add');
 
+},
+store: function (req, res) {
+  let info = req.body; //Guardamos los datos
 
+  let product = {//creamos la producto
+
+    titulo: info.titulo,
+    descripcion: info.descripcion,
+    foto: info.foto,
+    created_at: info.created_at
+   
+  } 
+  
+
+   /*  res.send(info)  */
+    producto.create(product)
+
+  .then((result) => {return res.redirect('/')}
+  )
+  
+ 
+},
+
+}
 
 
 
