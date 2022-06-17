@@ -84,50 +84,59 @@ const profileController ={
       return res.redirect('/users/login')
     } )
   },
-}
-/*
-const profileController = {
 
-
-  index: function (req, res) {
-    usuario.findAll()
-    .then(data=>{
-      return res.render('profile', {
-        profile: data})
-    })
- },
-    
-    create: (req, res) => {
-    return res.render("register");
-  } ,
-
-  store: (req, res) => {
-
-    let info = req.body;
-    let user = {
+  edit: (req,res) =>{
+    let id = req.params.id;
+    usuario.findByPk(id)
+    .then((info)=>{
+      let pass = bcryptjs.hashSync(info.contrasenia , 10) 
+      let profileEdit = {
+  
       nombre: info.nombre,
       apellido: info.apellido,
       email: info.email,
       usuario: info.usuario,
       fecha: info.fecha,
       foto: info.foto,
-      contrasenia: info.contrasenia,
-      dni: info.dni
-    }
-     usuario.create(user) 
-    .then((result) => {
-      return res.redirect('/index')
-
-    }) 
+      contrasenia: pass,
+      dni: info.dni,
+      id:id
+      }
+      return res.render('profile-edit' , {profile: profileEdit})
+    })
   },
- /* edit: (req, res) => {
-    let id = req.params.id;
-    movie.findByPk(id).then((result) => {
 
-      return res.render("movieEdit", {
-        movie: result,
-      });
-    });
-  } } */
+  update: (req,res) =>{
+
+    let profileEdited = req.body;
+  
+   let id = req.params.id
+  
+   usuario.update({
+  
+    nombre: profileEdited.nombre,
+    apellido: profileEdited.apellido,
+    email: profileEdited.email,
+    usuario: profileEdited.usuario,
+    fecha: profileEdited.fecha,
+    foto: profileEdited.foto,
+    contrasenia: profileEdited.contrasenia,
+    dni: profileEdited.dni
+    
+    } ,
+  
+    {
+  
+      where: [{id:id}]
+    }
+   )
+   .then(()=>{
+    return res.redirect('/')
+   })
+  }
+  
+
+}
+
 
   module.exports = profileController

@@ -21,24 +21,23 @@
 				<div class="wrapper fadeInDown">
 					<div id="formContent"> 
 					  <!-- Login Form -->
-					  <form class="form-register">
-						  <br>
-					
-						<input type="text" id="login" class="fadeIn second" name="login" placeholder="Nombre de usuario">
-						<input type="email" id="login" class="fadeIn second" name="login" placeholder="Email">
-						<input type="password" id="password" class="fadeIn third" name="login" placeholder="Contraseña">
-						<input type="number" id="password" class="fadeIn third" name="login" placeholder="Numero de documento">
-						<input type="file" id="password" class="fadeIn third" name="login" placeholder="Foto de perfil">
-						<input type="date" id="password" class="fadeIn third" name="login" placeholder="Fecha de nacimiento">
-						
-						
-						
-					  </form>
+					  <form class="form-register" action="/users/profile-edit/<%= profile.id %> " method="POST">
+						<br>
 				  
-					  <!-- Remind Passowrd -->
+					  <input type="text" id="login" class="fadeIn second" name="nombre" placeholder="Nombre" value="<%= profile.nombre %>">
+					  <input type="text" id="login" class="fadeIn second" name="apellido" placeholder="Apellido" value="<%= profile.apellido %>">
+					  <input type="email" id="login" class="fadeIn second" name="email" placeholder="Email" value="<%= profile.email %>">
+					  <input type="text" id="login" class="fadeIn second" name="usuario" placeholder="Nombre de usuario" value="<%= profile.usuario %>">
+					  <input type="date" id="login" class="fadeIn third" name="fecha" placeholder="Fecha de nacimiento" value="<%= profile.fecha %>">
+					  <input type="text" id="login" class="fadeIn third" name="foto" placeholder="Introducir ruta absoluta de la foto" value="<%= profile.foto %>">
+					  <input type="password" id="login" class="fadeIn third" name="contrasenia" placeholder="Contraseña" value="<%= profile.contrasenia %>">
+					  <input type="number" id="login" class="fadeIn third" name="dni" placeholder="Numero de documento" value="<%= profile.dni %>">
+  
 					  <div id="formFooter">
-						<a class="underlineHover" href="/users/profile">Editar</a>
+						  <button type="text" class="underlineHover">submit</button>
 					  </div>
+  
+					</form>
 				  
 					</div>
 				  </div>
