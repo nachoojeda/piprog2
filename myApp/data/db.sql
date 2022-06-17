@@ -12,7 +12,7 @@ email 			VARCHAR(50) NOT NULL ,
 usuario 		VARCHAR(50) NOT NULL ,
 fecha 			DATE 		NOT NULL,
 foto 			VARCHAR(300)NULL,
-contrasenia 	VARCHAR(50) NOT NULL,
+contrasenia 	VARCHAR(300) NOT NULL,
 dni 			INT NOT NULL,
 productos 		INT NULL,
 seguidores 		INT NULL,
@@ -153,3 +153,7 @@ VALUES ('2', '2');
 				</section>
 			</div>
 		<% } %>
+
+/* profileController */
+
+		  let passHashed = bcryptjs.hashSync(info.contrasenia , 10)
