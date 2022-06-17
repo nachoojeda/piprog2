@@ -22,18 +22,19 @@
 		<div class="wrapper fadeInDown">
 			<div id="formContent"> 
 			  <!-- Login Form -->
-			  <form class="form-register" action="" method="get">
+			  <form class="form-register" action="/users/login" method="POST">
 				  <br>
-				<input type="email" id="login" class="fadeIn second" name="login" placeholder="Usuario">
-				<input type="password" id="password" class="fadeIn third" name="login" placeholder="Contraseña">
+				<input type="text" id="login" class="fadeIn second" name="usuario" placeholder="Usuario">
+				<input type="password" id="password" class="fadeIn third" name="contrasenia" placeholder="Contraseña">
 				<input type="checkbox" id="password" class="fadeIn third" name="login" placeholder="Recordarme">
+				<div id="formFooter">
+					<button type="text" class="underlineHover">Ingresá</button>
+				  </div>
+			  
 			  </form>
 		  
 			  <!-- Remind Passowrd -->
-			  <div id="formFooter">
-				<a class="underlineHover" href="/users/profile">Ingresá</a>
-			  </div>
-		  
+			 
 			</div>
 		  </div>
 		</h2>
