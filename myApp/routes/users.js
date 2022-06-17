@@ -11,6 +11,7 @@ const profileController = require('../controllers/profileController');
 
 router.get('/register', profileController.create);
 router.get('/register', profileController.store);
+router.get('/profile', profileController.index);
 
 
 module.exports = router;

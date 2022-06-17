@@ -13,7 +13,7 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Agregar productos</h2>
+				<h2 class="products-title">Editar producto</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> 
@@ -23,9 +23,9 @@
 					  <!-- Login Form -->
 
 
-					  <form class="form-register" action="/product/product-add" method="POST">
+					  <form class="form-register" action="/product/product-edit/<% productos.id %> " method="POST">
 						  <br>
-					
+	
 						
 						<input type="text" id="add" class="fadeIn second" name="titulo" placeholder="Titulo">
 						<input type="text" id="add" class="fadeIn third" name="descripcion" placeholder="Descripcion">

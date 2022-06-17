@@ -25,6 +25,15 @@ const db = require('../database/models');
 const usuario = db.Usuario;
 
 const profileController = {
+
+
+  index: function (req, res) {
+    usuario.findAll()
+    .then(data=>{
+      return res.render('profile', {
+        profile: data})
+    })
+ },
     
     create: (req, res) => {
     return res.render("register");
