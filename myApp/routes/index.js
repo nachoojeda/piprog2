@@ -19,6 +19,8 @@ const indexController = require('../controllers/indexController');
 
 router.get('/', indexController.index);
 
+router.get('/busqueda/', indexController.showOne);
+
 
 
 module.exports = router; 
