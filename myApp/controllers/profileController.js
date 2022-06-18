@@ -48,10 +48,10 @@ const profileController ={
           req.session.user = result.dataValues;
         
             if (req.body.remember_token != undefined) {
-              res.cookie('userId' , req.session.user.id , {maxAge: 1000 * 60 * 5})
+              res.cookie('userId' , result.dataValues.id , {maxAge: 1000 * 60 * 5})
             }
 
-          return res.render('profile' , {profile: result}) 
+          return res.redirect("/") 
         }
          else {
           return res.send("Existe el usuario " + info.usuario + " y la clave es incorrecta")
@@ -61,6 +61,11 @@ const profileController ={
         return res.send("No existe el usuario " + info.usuario)
       }
     })
+  },
+  logout: (req,res) => {
+    req.session.destroy();
+    res.clearCookie('userId')
+    return res.redirect('/')
   },
 
   register: (req,res) =>{
@@ -140,10 +145,10 @@ const profileController ={
    .then(()=>{
     return res.redirect('/')
    })
-  }
-  
+  }  
 
 }
+
 
 
   module.exports = profileController

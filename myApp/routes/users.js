@@ -17,7 +17,7 @@ router.post('/profile-edit/:id',profileController.update)
 
 //router.get('profile-edit/:id',profileController.destroy)
 
-
+router.get('/logout', profileController.logout);
 router.get('/login', profileController.login);
 router.post('/login', profileController.procesarLogin);
 router.get('/register', profileController.register);
