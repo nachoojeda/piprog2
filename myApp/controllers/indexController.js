@@ -45,7 +45,7 @@ const indexController = {
   showOne : (req,res) => {
     let busqueda = req.query.search;
 
-    producto.findOne({ 
+    producto.findAll({ 
         where : [
         {
             titulo : {[op.like] : `%${busqueda}%` }

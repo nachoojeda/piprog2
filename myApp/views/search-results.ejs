@@ -21,21 +21,25 @@
 					
 					
 					
-							<div class="col-12 col-sm-6 col-lg-3">
-							<section class="product-box">
-								<a href="/product/product">
-									<figure class="product-box_image">
-										<img src="<%=productos.foto %> " alt="imagen de">
-									</figure>
-									<article class="product-box_data">
-										<h2> <%= productos.titulo  %> </h2>
-										<p><%=productos.descripcion %> </p>
-										
-									</article>
-								</a>
-							</section>
-						</div>
-			
+							
+			<% for (let i = 0; i < productos.length; i++) { %>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						<a href="/product/id/<%=productos[i].id%>">
+							<figure class="product-box_image">
+								<img src="<%=productos[i].foto %> " alt="imagen de">
+							</figure>
+							<article class="product-box_data">
+								<h2> <%= productos[i].titulo  %> </h2>
+								<p><%=productos[i].descripcion %> </p> 
+								<a href="/product/product-edit/<%=productos[i].id%>">Modificar |</a>
+								
+								<a href="/product/product-delete/<%=productos[i].id%>">| Eliminar</a>
+							</article>
+						</a>
+					</section>
+				</div>
+				<% } %>
 
 
 
