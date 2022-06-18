@@ -45,6 +45,12 @@ const profileController ={
         let clave = bcryptjs.compareSync(info.contrasenia , result.contrasenia)
         if (clave) {
           
+          req.session.user = result.dataValues;
+        
+            if (req.body.remember_token != undefined) {
+              res.cookie('userId' , req.session.user.id , {maxAge: 1000 * 60 * 5})
+            }
+
           return res.render('profile' , {profile: result}) 
         }
          else {
@@ -76,7 +82,8 @@ const profileController ={
       contrasenia: pass,
       dni: info.dni,
       created_at: new Date(),
-      updated_at: new Date()
+      updated_at: new Date(),
+      remember_token: false
     }
 
     usuario.create(user)

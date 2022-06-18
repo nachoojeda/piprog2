@@ -17,8 +17,11 @@
 
             <div class="col-12 col-md-4">
                 <a class="main-header_credit-link">
-                    <i class="fas fa-hand-holding-usd"></i>
-                    Todas las opiniones en un solo lugar.
+                   
+                    <% if(locals.user != undefined) { %>
+                        <p class="pepito">Bienvenido <%= user.nombre %></p>
+                    <% } %>
+                     
                 </a>
             </div>
         </div>
@@ -38,7 +41,10 @@
             <ul class="right-navbar">
                 <li><a href="/users/profile">
                     
-                        Juan Martinez <i class="fas fa-user"></i>
+                    <% if(locals.user != undefined) { %>
+                        <p class="pepito"> <%= user.nombre %> <i class="fas fa-user"></i></p>
+                    <% } %>
+                      
                     </a>
                     
                 </li>

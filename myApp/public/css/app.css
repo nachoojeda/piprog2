@@ -16,7 +16,9 @@
 
 
 /*====== Basics ======*/
-
+.pepito {
+  font-weight: bold;
+}
 .xdxd {
   height:100px;
   width: auto;

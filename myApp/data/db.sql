@@ -18,7 +18,8 @@ productos 		INT NULL,
 seguidores 		INT NULL,
 comentarios		INT NULL,
 created_at 		DATE NULL,
-updated_at		DATE NULL
+updated_at		DATE NULL,
+remember_toke VARCHAR(45) NULL
 )
 
 /*Creanddo tabla de productos*/

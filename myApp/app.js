@@ -4,6 +4,9 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+const session = require("express-session")
+const db = require('./database/models');
+
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const productRouter = require('./routes/product')
@@ -13,6 +16,44 @@ const app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+
+app.use(session({
+  secret: "myApp",
+  resave: false,
+  saveUninitialized: true
+}))
+
+app.use(function(req, res, next){
+
+  if(req.session.user != undefined) {
+    res.locals.user = req.session.user;
+    return next();
+  }
+return next();
+});
+
+/*
+app.use(function(req, res, next){
+
+  if (req.cookies.userId != undefined && req.session.user == undefined) {
+
+    let idUsuario = req.cookies.userId;
+
+    db.Usuario.findByPk(idUsuario)
+    .then((user) => {
+      req.session.user = user.dataValues;
+      res.locals.user = user.dataValues;
+      return next()
+    }) .catch((err) => {
+      console.log(err);
+    })
+  } else {
+    return next();
+  }
+}) 
+*/
+
 
 app.use(logger('dev'));
 app.use(express.json());
