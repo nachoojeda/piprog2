@@ -72,13 +72,14 @@ const profileController ={
 
     let info = req.body;  
     let pass = bcryptjs.hashSync(info.contrasenia , 10) 
+    let foto = req.file.filename;
     let user = {
       nombre: info.nombre,
       apellido: info.apellido,
       email: info.email,
       usuario: info.usuario,
       fecha: info.fecha,
-      foto: info.foto,
+      foto: foto,
       contrasenia: pass,
       dni: info.dni,
       created_at: new Date(),

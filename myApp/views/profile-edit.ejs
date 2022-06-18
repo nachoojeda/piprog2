@@ -21,7 +21,7 @@
 				<div class="wrapper fadeInDown">
 					<div id="formContent"> 
 					  <!-- Login Form -->
-					  <form class="form-register" action="/users/profile-edit/<%= profile.id %> " method="POST">
+					  <form class="form-register" action="/users/profile-edit/<%= profile.id %> " method="POST" enctype="multipart/form-data">
 						<br>
 				  
 					  <input type="text" id="login" class="fadeIn second" name="nombre" placeholder="Nombre" value="<%= profile.nombre %>">
@@ -29,7 +29,7 @@
 					  <input type="email" id="login" class="fadeIn second" name="email" placeholder="Email" value="<%= profile.email %>">
 					  <input type="text" id="login" class="fadeIn second" name="usuario" placeholder="Nombre de usuario" value="<%= profile.usuario %>">
 					  <input type="date" id="login" class="fadeIn third" name="fecha" placeholder="Fecha de nacimiento" value="<%= profile.fecha %>">
-					  <input type="text" id="login" class="fadeIn third" name="foto" placeholder="Introducir ruta absoluta de la foto" value="<%= profile.foto %>">
+					  <input type="file" id="login" class="fadeIn third" name="foto" placeholder="Foto de usuario" value="<%= profile.foto %>">
 					  <input type="password" id="login" class="fadeIn third" name="contrasenia" placeholder="Contraseña" value="<%= profile.contrasenia %>">
 					  <input type="number" id="login" class="fadeIn third" name="dni" placeholder="Numero de documento" value="<%= profile.dni %>">
   

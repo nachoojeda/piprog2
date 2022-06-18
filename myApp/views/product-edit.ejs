@@ -23,14 +23,14 @@
 					  <!-- Login Form -->
 
 
-					  <form class="form-register" action="/product/product-edit/<%= productos.id %> " method="POST">
+					  <form class="form-register" action="/product/product-edit/<%= productos.id %> " method="POST" enctype="multipart/form-data">
 						  <br>
 	
 						
-						<input type="text" id="edit" class="fadeIn second" name="titulo" placeholder="Titulo" value="<%= productos.titulo %>"/> 
-						<input type="text" id="edit" class="fadeIn third" name="descripcion" placeholder="Descripcion" value="<%= productos.descripcion %>"/>
-						<input type="text" id="edit" class="fadeIn second" name="foto" placeholder="Introducir ruta absoluta de la foto" value="<%= productos.foto %>"/>
-						<input type="date" id="edit" class="fadeIn third" name="created_at" placeholder="Fecha de carga" value="<%= productos.created_at %>"/>
+						<input type="text" id="titulo" class="fadeIn second" name="titulo" placeholder="Titulo" value="<%= productos.titulo %>"/> 
+						<input type="text" id="descripcion" class="fadeIn third" name="descripcion" placeholder="Descripcion" value="<%= productos.descripcion %>"/>
+						<input type="file" id="foto" class="fadeIn second" name="foto" placeholder="Foto de producto" value="<%= productos.foto %>"/>
+						<input type="date" id="created_at" class="fadeIn third" name="created_at" placeholder="Fecha de carga" value="<%= productos.created_at %>"/>
 						
 						<div id="formFooter">
 							<button type="text" class="underlineHover">submit</button>

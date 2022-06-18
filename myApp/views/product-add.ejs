@@ -23,14 +23,14 @@
 					  <!-- Login Form -->
 
 
-					  <form class="form-register" action="/product/product-add" method="POST">
+					  <form class="form-register" action="/product/product-add" method="POST" enctype="multipart/form-data">
 						  <br>
 					
 						
-						<input type="text" id="add" class="fadeIn second" name="titulo" placeholder="Titulo">
-						<input type="text" id="add" class="fadeIn third" name="descripcion" placeholder="Descripcion">
-						<input type="text" id="add" class="fadeIn second" name="foto" placeholder="Introducir ruta absoluta de la foto">
-						<input type="date" id="add" class="fadeIn third" name="created_at" placeholder="Fecha de carga">
+						<input type="text" id="titulo" class="fadeIn second" name="titulo" placeholder="Titulo">
+						<input type="text" id="descripcion" class="fadeIn third" name="descripcion" placeholder="Descripcion">
+						<input type="file" id="foto" class="fadeIn second" name="foto" placeholder="Foto de producto">
+						<input type="date" id="created_at" class="fadeIn third" name="created_at" placeholder="Fecha de carga">
 						
 						<div id="formFooter">
 							<button type="text" class="underlineHover">submit</button>

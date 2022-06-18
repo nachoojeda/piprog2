@@ -47,11 +47,12 @@ create: (req, res) => {
 store: function (req, res) {
   let info = req.body; //Guardamos los datos
 
+  let foto = req.file.filename;
   let product = {//creamos la producto
 
     titulo: info.titulo,
     descripcion: info.descripcion,
-    foto: info.foto,
+    foto: foto,
     created_at: info.created_at
    
   } 
@@ -68,11 +69,13 @@ store: function (req, res) {
 
 edit: (req,res) =>{
   let id = req.params.id;
+
   producto.findByPk(id)
   .then((info)=>{
+   
     let productEdit = {
 
-       titulo: info.titulo,
+    titulo: info.titulo,
     descripcion: info.descripcion,
     foto: info.foto,
     created_at: info.created_at,
@@ -87,12 +90,12 @@ update: (req,res) =>{
   let productEdited = req.body;
 
  let id = req.params.id
-
+ let foto = req.file.filename;
  producto.update({
 
     titulo: productEdited.titulo,
     descripcion: productEdited.descripcion,
-    foto: productEdited.foto,
+    foto: foto,
     created_at: productEdited.created_at
    
   } ,

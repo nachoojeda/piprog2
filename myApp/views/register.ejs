@@ -21,17 +21,17 @@
 			<div class="wrapper fadeInDown">
 				<div id="formContent"> 
 				  <!-- Login Form -->
-				  <form class="form-register" action="/users/register" method="POST">
+				  <form class="form-register" action="/users/register" method="POST" enctype="multipart/form-data">
 					  <br>
 				
-					<input type="text" id="login" class="fadeIn second" name="nombre" placeholder="Nombre">
-					<input type="text" id="login" class="fadeIn second" name="apellido" placeholder="Apellido">
-					<input type="email" id="login" class="fadeIn second" name="email" placeholder="Email">
-					<input type="text" id="login" class="fadeIn second" name="usuario" placeholder="Nombre de usuario">
-					<input type="date" id="login" class="fadeIn third" name="fecha" placeholder="Fecha de nacimiento">
-					<input type="text" id="login" class="fadeIn third" name="foto" placeholder="Introducir ruta absoluta de la foto">
-					<input type="password" id="login" class="fadeIn third" name="contrasenia" placeholder="Contraseña">
-					<input type="number" id="login" class="fadeIn third" name="dni" placeholder="Numero de documento">
+					<input type="text" id="nombre" class="fadeIn second" name="nombre" placeholder="Nombre">
+					<input type="text" id="apellido" class="fadeIn second" name="apellido" placeholder="Apellido">
+					<input type="email" id="email" class="fadeIn second" name="email" placeholder="Email">
+					<input type="text" id="usuario" class="fadeIn second" name="usuario" placeholder="Nombre de usuario">
+					<input type="date" id="fecha" class="fadeIn third" name="fecha" placeholder="Fecha de nacimiento">
+					<input type="file" id="foto" class="fadeIn third" name="foto" placeholder="Foto de usuario">
+					<input type="password" id="contrasenia" class="fadeIn third" name="contrasenia" placeholder="Contraseña">
+					<input type="number" id="dni" class="fadeIn third" name="dni" placeholder="Numero de documento">
 
 					<div id="formFooter">
 						<button type="text" class="underlineHover">submit</button>
