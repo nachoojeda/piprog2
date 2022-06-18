@@ -40,9 +40,9 @@
             
             <ul class="right-navbar">
                 <li><a href="/users/profile"></a>
-                    
+                  
                     <% if(locals.user != undefined) { %>
-                        <p class="pepito"> <%= locals.user.nombre %> <i class="fas fa-user"></i></p>
+                          <a href="/users/profile/<%= locals.user.id %> "><p class="pepito"> <%= locals.user.nombre %> <i class="fas fa-user"></i></p></a>
                     <% } %>
                       
                     </a>

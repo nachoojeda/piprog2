@@ -51,7 +51,7 @@ const profileController ={
               res.cookie('userId' , result.dataValues.id , {maxAge: 1000 * 60 * 5})
             }
 
-          return res.redirect("/") 
+            return res.render('profile' , {profile: result}) 
         }
          else {
           return res.send("Existe el usuario " + info.usuario + " y la clave es incorrecta")
