@@ -25,6 +25,10 @@ module.exports = function (sequelize, dataTypes) {
         id_usuario: {
             type:dataTypes.INTEGER
         },
+
+        id_comentario: {
+            type:dataTypes.INTEGER
+        },
         created_at: {
             type:dataTypes.DATE
         },
@@ -41,5 +45,29 @@ module.exports = function (sequelize, dataTypes) {
     } ;
 
     const Producto = sequelize.define(alias,cols,config);
+
+    Producto.associate = function(models){
+        Producto.belongsTo(models.Usuario, {
+            as: 'productoUsuario',
+            foreignKey: 'id_producto'
+        }),
+        Producto.hasMany(models.Comentario, {
+            as: 'productoComentario',
+            foreignKey: 'id_producto'
+        })
+
+    }
+
+    /*  Product.associate = function (models) {
+        Product.belongsTo(models.User, {
+            as: 'user',
+            foreignKey: 'user_id',
+        })
+
+        Product.hasMany(models.Comment, {
+            as: 'comment',
+            foreignKey: 'product_id'
+        })
+    } */
     return Producto
 }

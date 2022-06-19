@@ -43,7 +43,7 @@ module.exports = function (sequelize, dataTypes) {
             type: dataTypes.INTEGER
         },
 
-        productos: {
+        id_producto: {
             type: dataTypes.INTEGER
 
         },
@@ -53,7 +53,7 @@ module.exports = function (sequelize, dataTypes) {
 
         },
 
-        comentarios: {
+        id_comentario: {
             type: dataTypes.INTEGER
 
         },
@@ -77,5 +77,28 @@ module.exports = function (sequelize, dataTypes) {
     } ;
 
     const Usuario = sequelize.define(alias,cols,config);
+
+    Usuario.associate = function(models){
+        Usuario.hasMany(models.Producto, {
+            as: 'usuarioProducto',
+            foreignKey: 'id_usuario'
+        }),
+        Usuario.hasMany(models.Comentario, {
+            as: 'usuarioComentario',
+            foreignKey: 'id_usuario'
+        })
+
+    }
+
+    /* User.associate = function(models) {
+       User.hasMany(models.Product, {
+        as: 'products',
+        foreignKey: 'user_id',
+       });
+       User.hasMany(models.Comment, {
+           as:'comments',
+           foreignKey: 'user_id',
+       })
+   } */
     return Usuario
 }

@@ -30,8 +30,14 @@ const productController = {
   
    show: (req,res) => {
   let id = req.params.id; 
+  let relaciones = {
+    include: [{
+      all: true ,
+      nested: true
+    }]
+  }
  
-  producto.findByPk(id)
+  producto.findByPk(id , relaciones)
   .then(result=>{
       return res.render("product", {productos: result});
   })
