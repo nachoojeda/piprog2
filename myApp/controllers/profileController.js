@@ -27,6 +27,13 @@ const bcryptjs = require("bcryptjs")
 
 const profileController ={
 
+  show: (req,res) => {
+    let id = req.params.id; 
+   
+    usuario.findByPk(id)
+    .then(result=>{
+        return res.render("profile", {profile: result});
+    })},
   login: (req,res) =>{
 
     return res.render("login")
