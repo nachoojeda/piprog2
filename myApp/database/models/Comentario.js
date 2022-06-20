@@ -1,3 +1,5 @@
+const db = require(".");
+
 module.exports = function (sequelize, dataTypes) {
 
     let alias = 'Comentario' ;
@@ -60,5 +62,6 @@ module.exports = function (sequelize, dataTypes) {
         })
 
     } */
-    return Comentario
+    return Comentario;
+    comment = db.Comentario
 }
