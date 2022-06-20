@@ -34,13 +34,27 @@ const indexController = {
   index:(req,res) =>{
     producto.findAll()
     .then(data=>{
-      return res.render('index', {
-        productos: data})
+      return res.render('index', {productos: data})
     })
+
     .catch(error=>{
       return res.send(error)
     })
   },
+
+  /* gibson: (req,res) => {
+
+    producto.findAll(
+        { where : [ { titulo : {[op.like] : `%Gibson%` } } ]} 
+        ) 
+    .then((data) => 
+    {
+        return res.render('index', {gibson: data})
+    })
+} , */
+
+
+
 
   showOne : (req,res) => {
     let busqueda = req.query.search;
