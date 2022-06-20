@@ -25,7 +25,7 @@ const controller = { //objetos literales
 const db = require('../database/models');
 
 const producto = db.Producto;
-
+const comment = db.Comentario
 const productController = {
   
    show: (req,res) => {
@@ -143,6 +143,28 @@ destroy:(req, res)=>{
   }
   
 }
+ ,
+comment: (req, res) => {
+  if (req.session.user == undefined) {
+      res.redirect('/users/login')
+     
+  
+  } 
+  let info = req.body
+  let comentario = {
+      comentario: info.comentarios,
+      id_productos: req.params.id,
+      users_id: req.session.user.id,
+  }
+comment.create(comentario)
+  .then((result) => {
+      return res.redirect('/products/id/' + id_productos)
+  }).catch((err) => {
+      console.log(err);
+  });
+ 
+},
+
 }
 
 
