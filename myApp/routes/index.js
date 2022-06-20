@@ -34,6 +34,8 @@ let upload = multer({ storage : storage })
 
 router.get('/', upload.single('foto')  , indexController.index);
 
+// router.get('/', upload.single('foto')  , indexController.gibson);
+
 router.get('/busqueda/',  upload.single('foto') ,indexController.showOne);
 
 
