@@ -20,6 +20,9 @@
 	<h2 class="col-12"> 
 
 		<div class="wrapper fadeInDown">
+			<% if (locals.errors) { %>
+				<p style="color: red"><%= locals.errors.message %> </p>
+			   <% } %>
 			<div id="formContent"> 
 			  <!-- Login Form -->
 			  <form class="form-register" action="/users/login" method="POST">

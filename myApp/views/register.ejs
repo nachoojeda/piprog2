@@ -11,14 +11,20 @@
 
 	<!-- Novedades -->
 	<div class="container products-wrapper">
+		
 		<div class="row">
 			<div class="col-12">
 				<h2 class="products-title">Registrate</h2>
 			</div>
+
+			
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> 
-
+				
 			<div class="wrapper fadeInDown">
+				<% if (locals.errors) { %>
+					<p style="color: red"><%= locals.errors.message %> </p>
+				   <% } %>
 				<div id="formContent"> 
 				  <!-- Login Form -->
 				  <form class="form-register" action="/users/register" method="POST" enctype="multipart/form-data">

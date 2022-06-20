@@ -75,20 +75,28 @@ store: function (req, res) {
 
 edit: (req,res) =>{
   let id = req.params.id;
+  let errors = {}
 
-  producto.findByPk(id)
-  .then((info)=>{
-   
-    let productEdit = {
-
-    titulo: info.titulo,
-    descripcion: info.descripcion,
-    foto: info.foto,
-    created_at: info.created_at,
-    id:id
-    }
-    return res.render('product-edit' , {productos: productEdit})
-  })
+  if (req.session.user != undefined) {
+    producto.findByPk(id)
+    .then((info)=>{
+     
+      let productEdit = {
+  
+      titulo: info.titulo,
+      descripcion: info.descripcion,
+      foto: info.foto,
+      created_at: info.created_at,
+      id:id
+      }
+      return res.render('product-edit' , {productos: productEdit})
+    })
+  } else {
+    errors.message = "Para Editar un producto debes estar logueado";
+    res.locals.errors = errors;
+    return res.render('login')
+  }
+ 
 } ,
 
 update: (req,res) =>{
@@ -118,13 +126,22 @@ update: (req,res) =>{
 ,
 destroy:(req, res)=>{
   let borrarProducto = req.params.id
-  producto.destroy({
-    where:[{id:borrarProducto}]
-  })
-  .then((result)=>{
-    return res.redirect("/")
+  let errors = {}
 
-  })
+  if (req.session.user != undefined) {
+    producto.destroy({
+      where:[{id:borrarProducto}]
+    })
+    .then((result)=>{
+      return res.redirect("/")
+  
+    })
+  } else {
+    errors.message = "Para Eliminar un producto debes estar logueado";
+    res.locals.errors = errors;
+    return res.render('login')
+  }
+  
 }
 }
 

@@ -42,11 +42,10 @@ const profileController ={
   procesarLogin: (req,res) => {
 
     let info = req.body ;
+    let errors = {}
 
-    usuario.findOne({
 
-      where: [{usuario : info.usuario}]
-    }) .then((result) =>{
+    usuario.findOne({where: [{usuario : info.usuario}] }) .then((result) =>{
       if (result != null) {
 
         let clave = bcryptjs.compareSync(info.contrasenia , result.contrasenia)
@@ -60,12 +59,16 @@ const profileController ={
 
             return res.render('profile' , {profile: result}) 
         }
-         else {
-          return res.send("Existe el usuario " + info.usuario + " y la clave es incorrecta")
-        }
+
+       
       } 
+
       else {
-        return res.send("No existe el usuario " + info.usuario)
+         {
+          errors.message = "El usuario o la contraseña son incorrectos";
+          res.locals.errors = errors;
+          return res.render('login')
+        } 
       }
     })
   },
@@ -85,24 +88,72 @@ const profileController ={
     let info = req.body;  
     let pass = bcryptjs.hashSync(info.contrasenia , 10) 
     let foto = req.file.filename;
-    let user = {
-      nombre: info.nombre,
-      apellido: info.apellido,
-      email: info.email,
-      usuario: info.usuario,
-      fecha: info.fecha,
-      foto: foto,
-      contrasenia: pass,
-      dni: info.dni,
-      created_at: new Date(),
-      updated_at: new Date(),
-      remember_token: false
-    }
+    let errors = {}; 
 
-    usuario.create(user)
-    .then((result) =>{
-      return res.redirect('/users/login')
-    } )
+    if (info.nombre == "") {
+      errors.message = "El campo 'Nombre' no puede estar vacio ";
+      res.locals.errors = errors;
+      return res.render('register')
+    } 
+
+   else if (info.apellido == "") {
+      errors.message = "El campo 'Apellido' no puede estar vacio ";
+      res.locals.errors = errors;
+      return res.render('register')
+    } 
+
+    else if (info.email == "") {
+      errors.message = "El campo 'Email' no puede estar vacio ";
+      res.locals.errors = errors;
+      return res.render('register')
+    } 
+
+    else if (info.usuario == "") {
+      errors.message = "El campo 'Usuario' no puede estar vacio ";
+      res.locals.errors = errors;
+      return res.render('register')
+    } 
+
+    else if (info.foto == "") {
+      errors.message = "El campo de 'Foto' no puede estar vacio ";
+      res.locals.errors = errors;
+      return res.render('register')
+    } 
+
+    else if (info.contrasenia == "") {
+      errors.message = "El campo 'Contraseña' no puede estar vacio ";
+      res.locals.errors = errors;
+      return res.render('register')
+    } 
+
+    else if (info.dni == "") {
+      errors.message = "El campo 'DNI' no puede estar vacio ";
+      res.locals.errors = errors;
+      return res.render('register')
+    } 
+   
+    
+    else {
+      let user = {
+        nombre: info.nombre,
+        apellido: info.apellido,
+        email: info.email,
+        usuario: info.usuario,
+        fecha: info.fecha,
+        foto: foto,
+        contrasenia: pass,
+        dni: info.dni,
+        created_at: new Date(),
+        updated_at: new Date(),
+        remember_token: false
+      }
+  
+      usuario.create(user)
+      .then((result) =>{
+        return res.redirect('/users/login')
+      } );
+    }
+    
   },
 
   edit: (req,res) =>{
