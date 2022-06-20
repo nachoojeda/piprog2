@@ -64,11 +64,11 @@ const profileController ={
       } 
 
       else {
-         {
+         
           errors.message = "El usuario o la contraseña son incorrectos";
           res.locals.errors = errors;
           return res.render('login')
-        } 
+        
       }
     })
   },

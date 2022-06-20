@@ -41,7 +41,7 @@ const indexController = {
 
     producto.findAll( {include: [{association: 'productoUsuario'}]} )
     .then(data=>{
-      return res.render('index', {productos: data , datita} )
+      return res.render('index', {productos: data})
     })
 
     .catch(error=>{
