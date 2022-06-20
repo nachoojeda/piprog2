@@ -31,10 +31,17 @@ const producto = db.Producto;
 const op = db.Sequelize.Op;
 
 const indexController = {
+
+    
   index:(req,res) =>{
-    producto.findAll()
+
+    
+        
+      
+
+    producto.findAll( {include: [{association: 'productoUsuario'}]} )
     .then(data=>{
-      return res.render('index', {productos: data})
+      return res.render('index', {productos: data , datita} )
     })
 
     .catch(error=>{
@@ -59,11 +66,9 @@ const indexController = {
   showOne : (req,res) => {
     let busqueda = req.query.search;
 
-    producto.findAll({ 
-        where : [
-        {
-            titulo : {[op.like] : `%${busqueda}%` }
-        } ]}) 
+    producto.findAll(
+        {where : [{titulo:{[op.like]:`%${busqueda}%`}}]},
+        {where : [{descripcion:{[op.like]:`%${busqueda}%`}}]}) 
     .then((result) => 
     {
         return res.render("search-results" , {productos : result})

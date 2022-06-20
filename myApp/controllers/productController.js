@@ -25,7 +25,8 @@ const controller = { //objetos literales
 const db = require('../database/models');
 
 const producto = db.Producto;
-const comment = db.Comentario
+const comentario = db.Comentario
+const usuario = db.Usuario
 const productController = {
   
    show: (req,res) => {
@@ -54,15 +55,17 @@ store: function (req, res) {
   let info = req.body; //Guardamos los datos
 
   let foto = req.file.filename;
+  
   let product = {//creamos la producto
 
     titulo: info.titulo,
     descripcion: info.descripcion,
     foto: foto,
-    created_at: info.created_at
+    created_at: info.created_at,
+    id_usuario: req.session.user.id,
    
   } 
-  
+ 
 
    /*  res.send(info)  */
     producto.create(product)
@@ -145,24 +148,35 @@ destroy:(req, res)=>{
 }
  ,
 comment: (req, res) => {
-  if (req.session.user == undefined) {
-      res.redirect('/users/login')
-     
-  
-  } 
-  let info = req.body
-  let comentario = {
-      comentario: info.comentarios,
-      id_productos: req.params.id,
-      users_id: req.session.user.id,
+  let data = req.body;
+  let errors = {}; 
+
+  if (req.session.user != undefined) {
+      
+
+    let createComment = {
+      texto: data.texto,
+      id_producto: req.params.id,
+      id_usuario: req.session.user.id,
+      
   }
-comment.create(comentario)
-  .then((result) => {
-      return res.redirect('/products/id/' + id_productos)
-  }).catch((err) => {
-      console.log(err);
-  });
- 
+
+  comentario.create(createComment)
+      .then(data => {
+          producto.findByPk(data.id)
+              .then(result => {
+                  
+                          return res.redirect("/product/id/"  + req.params.id)
+              })
+
+
+      })
+  } 
+  else {
+    errors.message = "Para Comentar un producto debes estar logueado";
+    res.locals.errors = errors;
+    return res.render('login')
+  }
 },
 
 }
