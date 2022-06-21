@@ -136,6 +136,12 @@ const profileController ={
       return res.render('register')
     } 
 
+    else if (info.usuario == usuario.findOne({where: [{usuario : info.usuario}] })) {
+        errors.message = "Este nombre de usuario ya existe";
+        res.locals.errors = errors;
+        return res.render('register') 
+    }
+
     else if (info.foto == "") {
       errors.message = "El campo de 'Foto' no puede estar vacio ";
       res.locals.errors = errors;
@@ -148,6 +154,12 @@ const profileController ={
       return res.render('register')
     } 
 
+    else if (info.contrasenia.length <= 3) {
+      errors.message = "La Contraseña debe tener al menos 3 caracteres";
+      res.locals.errors = errors;
+      return res.render('register')
+    } 
+
     else if (info.dni == "") {
       errors.message = "El campo 'DNI' no puede estar vacio ";
       res.locals.errors = errors;
@@ -156,7 +168,15 @@ const profileController ={
    
     
     else {
-      let user = {
+
+    usuario.findOne({where:[{usuario: req.body.usuario}]})
+    .then(user => {
+        if (user != null) {
+            errors.message = "Este nombre de usuario ya existe";
+            res.locals.errors = errors;
+            return res.render('register') }
+       
+      let userNuevo = {
         nombre: info.nombre,
         apellido: info.apellido,
         email: info.email,
@@ -170,10 +190,12 @@ const profileController ={
         remember_token: false
       }
   
-      usuario.create(user)
+      usuario.create(userNuevo)
       .then((result) =>{
         return res.redirect('/users/login')
       } );
+
+       })
     }
     
   },
