@@ -35,14 +35,10 @@ const indexController = {
     
   index:(req,res) =>{
 
-    let relaciones = {
-        include: [{
-           association: 'productoUsuario'
-            }
-        ]
-      }
+    let relaciones = {include:[{association: 'user'}]}
 
     producto.findAll(relaciones)
+    
     .then(data=>{
       return res.render('index', {productos: data})
     })
