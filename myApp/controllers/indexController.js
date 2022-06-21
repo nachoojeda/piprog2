@@ -37,10 +37,12 @@ const indexController = {
 
     let relaciones = {include:[{association: 'user'}]}
 
-    producto.findAll(relaciones , {
+    producto.findAll({
         order: [
-            ['titulo', 'ASC']
-        ]})
+            ['created_at', 'DESC']
+        ], 
+        limit: 12}
+        )
     
     .then(data=>{
       return res.render('index', {productos: data})
