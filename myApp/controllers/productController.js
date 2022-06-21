@@ -147,17 +147,10 @@ destroy:(req, res)=>{
   
 }
  ,
-<<<<<<< HEAD
-comments: (req, res) => {
+
+ comments: (req, res) => {
   if (req.session.user == undefined) {
       res.redirect('(/users/login')
-=======
-comment: (req, res) => {
-  let data = req.body;
-  let errors = {}; 
-
-  if (req.session.user != undefined) {
-      
 
     let createComment = {
       texto: data.texto,
@@ -176,24 +169,12 @@ comment: (req, res) => {
 
 
       })
->>>>>>> cff3310dada6dec6a0095da752c88fa799a50d53
   } 
   else {
     errors.message = "Para Comentar un producto debes estar logueado";
     res.locals.errors = errors;
     return res.render('login')
   }
-<<<<<<< HEAD
-comment.create(comentario)
-  .then((result) => {
-      return res.send(comentario);
-
-  }).catch((err) => {
-      console.log(err);
-  });
- 
-=======
->>>>>>> cff3310dada6dec6a0095da752c88fa799a50d53
 },
 
 }
