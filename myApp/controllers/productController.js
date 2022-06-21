@@ -144,11 +144,9 @@ destroy:(req, res)=>{
   
 }
  ,
-comment: (req, res) => {
+comments: (req, res) => {
   if (req.session.user == undefined) {
-      res.redirect('/users/login')
-     
-  
+      res.redirect('(/users/login')
   } 
   let info = req.body
   let comentario = {
@@ -158,7 +156,8 @@ comment: (req, res) => {
   }
 comment.create(comentario)
   .then((result) => {
-      return res.redirect('/products/id/' + id_productos)
+      return res.send(comentario);
+
   }).catch((err) => {
       console.log(err);
   });

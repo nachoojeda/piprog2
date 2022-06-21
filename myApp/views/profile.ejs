@@ -40,7 +40,30 @@
 	<!-- /Datos del usuario -->
 
 	<!-- Mis productos -->
-	
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">My products</h2>
+			</div>
+			<!-- Show the "ultimos" products -->
+			<% for (let i = 0; i < profile.productos ; i++) { %>
+			<div class="col-12 col-sm-6 col-lg-3">
+				<section class="product-box">
+					<a href="/products/id/<%= profile.productos[i].id %>">
+						<figure class="product-box_image">
+							<img src="/images/products/<%= profile.productos[i].photo %>"  alt="shoes">
+						</figure>
+						<article class="product-box_data">
+							<h2> <%= profile.productos[i].titulo  %>  </h2>
+							<p> <%= profile.productos[i].descripcion  %> </p>
+							<p>Creator: <%= profile.nombre %> <%= profile.apellido %> </p> 
+						</article>
+					</a>
+				</section>
+			</div>
+			<% } %>
+		</div>
+	</div>
 	<!-- /Mis productos -->
 
 
