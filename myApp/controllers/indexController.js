@@ -31,8 +31,17 @@ const producto = db.Producto;
 const op = db.Sequelize.Op;
 
 const indexController = {
+
+    
   index:(req,res) =>{
-    producto.findAll()
+
+    let relaciones = {include:[{association: 'user'}]}
+
+    producto.findAll(relaciones , {
+        order: [
+            ['titulo', 'ASC']
+        ]})
+    
     .then(data=>{
       return res.render('index', {productos: data})
     })
@@ -58,15 +67,30 @@ const indexController = {
 
   showOne : (req,res) => {
     let busqueda = req.query.search;
+    let errors = {}
+    
+    producto.findAll({
 
-    producto.findAll({ 
-        where : [
-        {
-            titulo : {[op.like] : `%${busqueda}%` }
-        } ]}) 
+        where:{[op.or]:
+            [
+        {titulo: {[op.like]: `%${busqueda}%`}},
+        {descripcion:{[op.like]: `%${busqueda}%`}}
+            ]
+             }
+                    })
     .then((result) => 
     {
-        return res.render("search-results" , {productos : result})
+        if (result == null) { 
+            
+            errors.message = "Este producto no existe";
+        res.locals.errors = errors;
+        return res.render('search-results') 
+            } 
+        else {
+            
+            return res.render("search-results" , {productos : result})
+        }
+        
     })
 } 
 }

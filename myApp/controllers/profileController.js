@@ -45,33 +45,55 @@ const profileController ={
     let errors = {}
 
 
-    usuario.findOne({where: [{usuario : info.usuario}] }) .then((result) =>{
+   
+
+      if (info.usuario == "") {
+        errors.message = "El campo de Usuario no puede estar vacio";
+        res.locals.errors = errors;
+        return res.render("login");
+        
+    } else if (info.contrasenia == ""){
+        errors.message = "El campo de Contraseña no puede estar vacio";
+        res.locals.errors = errors;
+        return res.render('login')
+
+    } 
+
+     else {
+      usuario.findOne({where: [{usuario : info.usuario}] }) .then((result) =>{
       if (result != null) {
 
-        let clave = bcryptjs.compareSync(info.contrasenia , result.contrasenia)
-        if (clave) {
-          
-          req.session.user = result.dataValues;
+      let clave = bcryptjs.compareSync(info.contrasenia , result.contrasenia)
+      if (clave) {
         
-            if (req.body.remember_token != undefined) {
-              res.cookie('userId' , result.dataValues.id , {maxAge: 1000 * 60 * 5})
-            }
+        req.session.user = result.dataValues;
+      
+          if (req.body.remember_token != undefined) {
+            res.cookie('userId' , result.dataValues.id , {maxAge: 1000 * 60 * 5})
+          }
 
-            return res.render('profile' , {profile: result}) 
-        }
-
-       
-      } 
-
-      else {
-         {
-          errors.message = "El usuario o la contraseña son incorrectos";
-          res.locals.errors = errors;
-          return res.render('login')
-        } 
+          return res.render('profile' , {profile: result}) 
       }
-    })
-  },
+       else {
+        errors.message = "La clave es incorrecta"
+        res.locals.errors = errors;
+        return res.render('login');
+      }
+    } 
+    else {
+       {
+        errors.message = "El usuario " + info.usuario + " no existe";
+        res.locals.errors = errors;
+        return res.render('login')
+      } 
+    }
+  })
+}}
+
+
+
+,
+      
   logout: (req,res) => {
     req.session.destroy();
     res.clearCookie('userId')
@@ -114,6 +136,12 @@ const profileController ={
       return res.render('register')
     } 
 
+    else if (info.usuario == usuario.findOne({where: [{usuario : info.usuario}] })) {
+        errors.message = "Este nombre de usuario ya existe";
+        res.locals.errors = errors;
+        return res.render('register') 
+    }
+
     else if (info.foto == "") {
       errors.message = "El campo de 'Foto' no puede estar vacio ";
       res.locals.errors = errors;
@@ -126,6 +154,12 @@ const profileController ={
       return res.render('register')
     } 
 
+    else if (info.contrasenia.length <= 3) {
+      errors.message = "La Contraseña debe tener al menos 3 caracteres";
+      res.locals.errors = errors;
+      return res.render('register')
+    } 
+
     else if (info.dni == "") {
       errors.message = "El campo 'DNI' no puede estar vacio ";
       res.locals.errors = errors;
@@ -134,7 +168,15 @@ const profileController ={
    
     
     else {
-      let user = {
+
+    usuario.findOne({where:[{usuario: req.body.usuario}]})
+    .then(user => {
+        if (user != null) {
+            errors.message = "Este nombre de usuario ya existe";
+            res.locals.errors = errors;
+            return res.render('register') }
+       
+      let userNuevo = {
         nombre: info.nombre,
         apellido: info.apellido,
         email: info.email,
@@ -148,10 +190,12 @@ const profileController ={
         remember_token: false
       }
   
-      usuario.create(user)
+      usuario.create(userNuevo)
       .then((result) =>{
         return res.redirect('/users/login')
       } );
+
+       })
     }
     
   },
