@@ -28,9 +28,9 @@ let upload = multer({ storage : storage })
 //router.get('/profile', profileController.index);
 
 
-router.get('/profile-edit/:id',profileController.edit)
+router.get('/profile-edit/:id', profileController.edit)
 
-router.post('/profile-edit/:id',profileController.update)
+router.post('/profile-edit/:id',upload.single('foto'),profileController.update)
 
 
 router.get('/profile/:id', upload.single('foto') ,profileController.show);

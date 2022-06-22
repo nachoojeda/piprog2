@@ -6,7 +6,12 @@
 	<!-- Header -->
 	
 	<!-- /Header -->
-	<%- include('./partials/headerLogueado')  %> 
+
+	<% if (locals.user != undefined) { %>
+		<%- include('./partials/headerLogueado')  %> 
+<% } else{%>
+		<%- include('./partials/headerDeslogueado')  %> 
+<% } %>
 	<!-- product detail -->
 	 
 
@@ -48,8 +53,8 @@
 					
 			
 					<form class="form" action="/product/id/<%=productos.id%>"  method="POST">
-						<input name="texto" class="form-input" type="text" value="" placeholder="Agregar comentario">
-						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+						<input name="texto" class="form-input" type="text" value="" placeholder="Escribi tu comentario">
+						<button type="submit" class="buy-now-button">Agregar comentario</button>
 					
 					</form>
 
