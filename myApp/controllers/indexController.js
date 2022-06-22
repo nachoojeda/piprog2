@@ -1,30 +1,3 @@
-/*const db = require("../db");
-const controller = {
-    index: function (req, res) {
-        res.render('index', {
-            productos: db.products
-        });
-    },
-    login: function (req, res) {
-        res.render('login');
-    },
-    register: function (req, res) {
-        res.render('register');
-    },
-    products: function (req, res) {
-        res.render('products', {
-            productos: db.products
-        })
-    },
-    searchresults: function (req, res) {
-        res.render('search-results', {
-            productos: db.products
-        });
-    }
-
-}
-module.exports = controller */
-
 const db = require('../database/models');
 
 const producto = db.Producto;
@@ -37,28 +10,20 @@ const indexController = {
 
 
 
-        producto.findAll(
-            {
-                include: [
-                    {association: "user"},
-        
-        
-                ], 
-            
-                order:[
-                    ["titulo" , "ASC"]
-                ] ,
-                limit: 12
-            }
-            /*
-                ({
-                    include: ["user"]
-                }), {
+        producto.findAll({
+                    include: [{
+                            association: "user"
+                        },
+
+
+                    ],
+
                     order: [
-                        ['created_at', 'DESC']
+                        ["titulo", "ASC"]
                     ],
                     limit: 12
-                }*/
+                }
+
             )
 
             .then(data => {
@@ -71,20 +36,6 @@ const indexController = {
                 return res.send(error)
             })
     },
-
-    /* gibson: (req,res) => {
-
-    producto.findAll(
-        { where : [ { titulo : {[op.like] : `%Gibson%` } } ]} 
-        ) 
-    .then((data) => 
-    {
-        return res.render('index', {gibson: data})
-    })
-} , */
-
-
-
 
     showOne: (req, res) => {
         let busqueda = req.query.search;
@@ -111,7 +62,7 @@ const indexController = {
                                 [op.like]: '%' + busqueda + '%'
                             }
                         }
-                      
+
                     ]
                 }
 
