@@ -129,9 +129,9 @@ destroy:(req, res)=>{
 }
  ,
 
- comments: (req, res) => {
-  if (req.session.user == undefined) {
-      res.redirect('(/users/login')
+ /* comments: (req, res) => {
+  if (req.session.user = undefined) {
+      res.redirect('/users/login');
 
     let createComment = {
       texto: data.texto,
@@ -140,12 +140,11 @@ destroy:(req, res)=>{
       
   }
 
-  comentario.create(createComment)
+ comentario.create(createComment)
       .then(data => {
           producto.findByPk(data.id)
               .then(result => {
-                  
-                          return res.redirect("/product/id/"  + req.params.id)
+                   return res.redirect("/product/id/"  + req.params.id)
               })
 
 
@@ -156,9 +155,32 @@ destroy:(req, res)=>{
     res.locals.errors = errors;
     return res.render('login')
   }
-},
+},*/
+createComment: function (req, res) { 
+  let info = req.body
+  let comentario = { // No ponemos el id porque es autoincremental
+      // Saco los valores de info para llenar el objeto literal (email, etc.)
+      product_id : info.id_productos, // Tengo que ir a register.ejs para fijarme que name tiene en el input
+      user_id : info.id_usuario, // Tengo que ir a register.ejs para fijarme que name tiene en el input
+     comentario : info.comentario,
+      created_at : new Date(), // Esto no esta en info. Por eso voy a mySQL y me fijo que tipo de dato son
+      updated_at : new Date(), // new Date() es darle la fecha del dia de hoy
+  }
+
+  /* Almacenando el registro del usuario */
+  db.Comentario.create(comentario)
+  .then((result) =>{
+      return res.redirect("/product/"+info.id_Product) // Lo quiero redirigir para que se logee
+  }).catch((err) => {
+      console.error(err)
+  }); // Creando el usuario en la base de datos
+  
+ 
+}
 
 }
+
+
 
 
 

@@ -36,19 +36,19 @@
 				<section class="product-box">
 					<a href="/product/id/<%=productos[i].id%>">
 						<figure class="product-box_image">
-							<img src="/images/products/<%=productos[i].foto %>" alt="imagen de">
+							<img src="/images/products/<%=productos[i].foto %>" alt="imagen de">ls
+						
 						</figure>
 						<article class="product-box_data">
 							<h2> <%= productos[i].titulo  %> </h2>
 							<p><%=productos[i].descripcion %> </p> 
 							
-						<p>Producto cargado por el usuario <a href="/users/profile/<%=productos[i].user.id%>"> "<%=productos[i].user.nombre%>"</a></p>	
+					<p>Producto cargado por el usuario <a href="/users/profile/<%=productos[i].user.id%>"> "<%=productos[i].user.nombre%>"</a></p>	
 
 							<a href="/product/product-edit/<%=productos[i].id%>">Modificar |</a>
 							
 							<a href="/product/product-delete/<%=productos[i].id%>">| Eliminar</a>
 						</article>
-					</a>
 				</section>
 			</div>
 			<% } %>

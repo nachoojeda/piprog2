@@ -50,7 +50,8 @@ router.post('/product-edit/:id',  upload.single('foto') , productController.upda
 
 router.get('/product-delete/:id', productController.destroy)
 
-router.post('/product/id/:id', productController.comments)
+router.post('/product/id/:id', productController.createComment)
+router.get('/users/login', productController.createComment)
 
 
 

@@ -49,7 +49,28 @@
 				</section>
 		
 			<div class="col-12 col-lg-4">
-				
+				<section class="comments">
+					<% for (let index = 0; index < productos.comment.length; index++) { %>
+						<% const comment = productos.comment[index]; %>
+					<article>
+						<img src="/images/users/<%= comment.user.img %>" alt="">
+						<div class="data">
+							<p class="user">
+							<strong> <a class="nombreComentario" href="/users/profile/<%= comment.user.id %>">  <%= comment.user.username %> </a> </strong>
+							 <p><%= comment.comentario %></p>
+						</div>
+					</article>
+					<% } %>
+
+				</section>
+				<% if(locals.user){ %> 
+				<form class="form" action="/product/comment" method="POST">
+					<input class="form-input" type="text" name="comentario" placeholder="Agregar comentario">
+					<input type="hidden" name="idProduct" value="<%= productos.id %>">
+					<input type="hidden" name="idUser" value="<%= locals.user.id %>">
+					<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+				</form>
+				<% } %>
 					
 			
 					<form class="form" action="/product/id/<%=productos.id%>"  method="POST">
