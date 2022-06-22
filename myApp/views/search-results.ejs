@@ -39,7 +39,8 @@
 							<article class="product-box_data">
 								<h2> <%= productos[i].titulo  %> </h2>
 								<p><%=productos[i].descripcion %> </p> 
-								<p><%=productos[i].id_usuario%> </p> 
+								<a href="/users/profile/<%=productos[i].user.id%>"> Producto cargado por <p><%=productos[i].user.nombre%> </p>  </a>
+
 								<a href="/product/product-edit/<%=productos[i].id%>">Modificar |</a>
 								
 								<a href="/product/product-delete/<%=productos[i].id%>">| Eliminar</a>

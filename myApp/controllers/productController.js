@@ -31,14 +31,10 @@ const productController = {
   
    show: (req,res) => {
   let id = req.params.id; 
-  let relaciones = {
-    include: [{
-      all: true ,
-      nested: true
-    }]
-  }
+  
  
-  producto.findByPk(id , relaciones)
+  producto.findByPk(id , ({include: ["user"]})
+  ,)
   .then(result=>{
       return res.render("product", {productos: result});
   })

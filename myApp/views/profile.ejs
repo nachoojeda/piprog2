@@ -4,7 +4,12 @@
 <%- include('./partials/head')  %> 
 <body>
 	<!-- Header -->
-	<%- include('./partials/headerLogueado')  %> 
+	<% if (locals.user != undefined) { %>
+		<%- include('./partials/headerLogueado')  %> 
+<% } else{%>
+		<%- include('./partials/headerDeslogueado')  %> 
+<% } %>
+
 	<!-- /Header -->
 
 	<!-- Datos del usuario -->
@@ -42,7 +47,7 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">My products</h2>
+				<h2 class="products-title">Productos de <%= profile.usuario %> </h2>
 			</div>
 			<!-- Show the "ultimos" products -->
 			<% for (let i = 0; i < profile.productos ; i++) { %>

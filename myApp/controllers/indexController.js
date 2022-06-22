@@ -35,9 +35,12 @@ const indexController = {
     
   index:(req,res) =>{
 
-    let relaciones = {include:[{association: 'user'}]}
+   
 
-    producto.findAll({
+    producto.findAll(
+        ({include: ["user"]})
+        ,
+        {
         order: [
             ['created_at', 'DESC']
         ], 
@@ -71,7 +74,10 @@ const indexController = {
     let busqueda = req.query.search;
     let errors = {}
     
-    producto.findAll({
+    producto.findAll(
+        
+        ({include: ["user"]})
+        ,{
 
         where:{[op.or]:
             [
