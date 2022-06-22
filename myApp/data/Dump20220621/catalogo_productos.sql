@@ -33,7 +33,7 @@ CREATE TABLE `productos` (
   `id_comentario` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `productos_ibfk_1` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `productos` (
 
 LOCK TABLES `productos` WRITE;
 /*!40000 ALTER TABLE `productos` DISABLE KEYS */;
-INSERT INTO `productos` VALUES (18,'Fender Bass','Troy Sanders Jaguar® Bass','foto-1655680845610.jpeg',21,'2022-06-18','2022-06-19',5),(19,'Fender Bass','Player Jaguar® Bass','foto-1655783930756.jpeg',NULL,'2022-06-18','2022-06-21',NULL),(20,'Fender Stratocaster','American Professional II Stratocaster® HSS','foto-1655680873343.jpeg',NULL,'2022-06-18','2022-06-19',NULL),(21,'Gibson Les Paul','Les Paul Standard \'50s','foto-1655589443024.png',NULL,'2022-06-18','2022-06-18',NULL),(22,'Gibson Les Paul','Les Paul Classic','foto-1655589476571.png',NULL,'2022-06-18','2022-06-18',15),(23,'Gibson Flying V','70s Flying V','foto-1655590747158.png',NULL,'2022-06-18','2022-06-18',NULL),(24,'Gibson Explorer','Johnny Winter 1964 Firebird V','foto-1655589565148.png',NULL,'2022-06-18','2022-06-18',NULL),(25,'Fender Stratocaster','American Ultra Stratocaster®','foto-1655751734142.jpeg',NULL,'2022-06-30','2022-06-20',NULL),(26,'Nach','F','foto-1655753456582.jpeg',25,'2022-06-20','2022-06-20',NULL),(27,'x','x','foto-1655753537095.jpeg',21,'2022-06-20','2022-06-20',NULL),(32,'Nach','American Professional II Jazzmaster®','foto-1655766839741.png',25,'2022-06-20','2022-06-20',NULL),(33,'x','x','foto-1655766881061.jpeg',21,'2022-06-20','2022-06-20',NULL);
+INSERT INTO `productos` VALUES (66,'Fender Stratocaster','American Professional II Stratocaster® HSS','foto-1655929109675.jpeg',46,'2022-06-22','2022-06-22',NULL),(67,'Fender Stratocaster','American Ultra Stratocaster®','foto-1655929150337.jpeg',45,'2022-06-22','2022-06-22',NULL),(68,'Fender Stratocaster','American Professional II Jazzmaster®','foto-1655929207799.jpeg',47,'2022-06-22','2022-06-22',NULL),(70,'Fender Stratocaster','Player Plus Stratocaster®','foto-1655929324825.jpeg',46,'2022-06-22','2022-06-22',NULL),(71,'Gibson Flying V','70s Flying V','foto-1655931000008.png',45,'2022-06-22','2022-06-22',NULL),(72,'Gibson Explorer','\'60s','foto-1655930005748.png',47,'2022-06-22','2022-06-22',NULL),(73,'Gibson Les Paul','Les Paul Classic','foto-1655930037093.png',46,'2022-06-22','2022-06-22',NULL),(74,'Gibson Les Paul','Les Paul Standard \'50s','foto-1655930107072.png',45,'2022-06-22','2022-06-22',NULL),(75,'Taylor','GT Taylor GT','foto-1655930133299.png',47,'2022-06-22','2022-06-22',NULL),(76,'Taylor','300 Grand Concert','foto-1655930167574.png',46,'2022-06-22','2022-06-22',NULL),(77,'Taylor','Academy 10e','foto-1655932329910.png',45,'2022-06-22','2022-06-22',NULL),(78,'Taylor','\'73s','guitardef.jpeg',47,'2022-06-22','2022-06-22',NULL);
 /*!40000 ALTER TABLE `productos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-21  1:43:39
+-- Dump completed on 2022-06-22 18:38:46

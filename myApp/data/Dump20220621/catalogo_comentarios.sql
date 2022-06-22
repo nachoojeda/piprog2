@@ -34,7 +34,7 @@ CREATE TABLE `comentarios` (
   KEY `comentarios_ibfk_2` (`id_producto`),
   CONSTRAINT `comentarios_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id`),
   CONSTRAINT `comentarios_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `comentarios` (
 
 LOCK TABLES `comentarios` WRITE;
 /*!40000 ALTER TABLE `comentarios` DISABLE KEYS */;
-INSERT INTO `comentarios` VALUES (5,'Me encanta!',21,18,NULL,NULL),(6,'x',NULL,NULL,'2022-06-20','2022-06-20'),(7,'x',NULL,NULL,'2022-06-20','2022-06-20'),(8,'x',NULL,NULL,'2022-06-20','2022-06-20'),(9,'www',NULL,21,'2022-06-20','2022-06-20'),(10,'eeee',21,20,'2022-06-20','2022-06-20'),(11,'qqqq',21,21,'2022-06-20','2022-06-20'),(12,'ppppp',21,21,'2022-06-20','2022-06-20'),(13,'pepe',25,23,'2022-06-20','2022-06-20'),(14,'ffff',25,24,'2022-06-20','2022-06-20'),(15,'Me encanta!',25,22,'2022-06-20','2022-06-20'),(16,'hola',25,22,'2022-06-20','2022-06-20'),(17,'x',25,33,'2022-06-21','2022-06-21'),(18,'holandaaaaa',25,33,'2022-06-21','2022-06-21');
+INSERT INTO `comentarios` VALUES (24,'Muy mala',47,67,'2022-06-22','2022-06-22'),(25,'No me gusta Fender',47,66,'2022-06-22','2022-06-22'),(26,'Es la de Kurko',47,68,'2022-06-22','2022-06-22'),(27,'Que feo color',47,70,'2022-06-22','2022-06-22'),(28,'Mmmmm idk',46,67,'2022-06-22','2022-06-22'),(29,'Maybe...',46,66,'2022-06-22','2022-06-22'),(30,':/',46,68,'2022-06-22','2022-06-22'),(31,':$',46,70,'2022-06-22','2022-06-22'),(32,'YESSSSSSS',46,72,'2022-06-22','2022-06-22'),(33,'OH MY GOOOOSH!!!!!',46,71,'2022-06-22','2022-06-22'),(34,'YES DEFINITELY YES !!!',46,74,'2022-06-22','2022-06-22'),(35,'Green???? YAS',46,73,'2022-06-22','2022-06-22'),(36,'Mi primer guitarra <3',45,77,'2022-06-22','2022-06-22'),(37,'La de John ;)',45,75,'2022-06-22','2022-06-22'),(38,'Me gusta ',45,76,'2022-06-22','2022-06-22'),(39,'Deajjjjj',45,72,'2022-06-22','2022-06-22'),(40,'Incomoda',45,71,'2022-06-22','2022-06-22'),(41,'Aburrida',45,74,'2022-06-22','2022-06-22'),(42,'Malos pickups',45,73,'2022-06-22','2022-06-22'),(43,'Mi guitarra actual :D',45,67,'2022-06-22','2022-06-22'),(44,'Linda.. pero',45,66,'2022-06-22','2022-06-22'),(45,'Aguante Kurko!',45,68,'2022-06-22','2022-06-22'),(46,'Zafa',45,70,'2022-06-22','2022-06-22'),(47,'No hay foto?',45,78,'2022-06-22','2022-06-22'),(48,'Can\'t see no picture ...',46,78,'2022-06-22','2022-06-22'),(49,'Jejeje me olvide de cargarle una foto',47,78,'2022-06-22','2022-06-22'),(50,'Parece un ukelele',47,72,'2022-06-22','2022-06-22'),(51,'Esta la uso JFK?',47,71,'2022-06-22','2022-06-22'),(52,'Slash?????? ',47,74,'2022-06-22','2022-06-22'),(53,'Ehhh..',47,73,'2022-06-22','2022-06-22'),(54,'Buena madera',47,75,'2022-06-22','2022-06-22'),(55,'Fachera',47,77,'2022-06-22','2022-06-22'),(56,'Tipica',47,76,'2022-06-22','2022-06-22'),(57,'DAMN',46,75,'2022-06-22','2022-06-22'),(58,'Nahhh not for me',46,77,'2022-06-22','2022-06-22'),(59,'Boring',46,76,'2022-06-22','2022-06-22');
 /*!40000 ALTER TABLE `comentarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-21  1:43:37
+-- Dump completed on 2022-06-22 18:38:43
