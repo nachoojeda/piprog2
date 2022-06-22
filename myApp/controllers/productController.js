@@ -123,22 +123,11 @@ update: (req,res) =>{
 ,
 destroy:(req, res)=>{
   let borrarProducto = req.params.id
-  let errors = {}
 
-  if (req.session.user != undefined) {
-    producto.destroy({
-      where:[{id:borrarProducto}]
-    })
+    producto.destroy({where:[{id:borrarProducto}]})
     .then((result)=>{
       return res.redirect("/")
-  
     })
-  } else {
-    errors.message = "Para Eliminar un producto debes estar logueado";
-    res.locals.errors = errors;
-    return res.render('login')
-  }
-  
 }
  ,
 
