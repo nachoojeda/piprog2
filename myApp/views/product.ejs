@@ -19,7 +19,7 @@
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"><%=productos.titulo  %></h2>
 			<p class="product-detail-description">
-				<% if (locals.user.id == productos.user.id) { %>
+				<% if (locals.user &&locals.user.id == productos.user.id) { %>
 					<a href="/product/product-edit/<%= productos.id  %> ">Editar</a>
 					|
 					<a href="/product/product-delete/<%=productos.id%>">Eliminar</a>
@@ -43,53 +43,31 @@
 				
 		
 			<div class="col-12 col-lg-4">
-				<section class="comments">
-					<% for (let index = 0; index < productos.comment.length; index++) { %>
-						<% const comment = productos.comment[index]; %>
-					<article>
-						<img src="/images/users/<%= comment.user.img %>" alt="">
-						<div class="data">
-							<p class="user">
-							<strong> <a class="nombreComentario" href="/users/profile/<%= comment.user.id %>">  <%= comment.user.username %> </a> </strong>
-							 <p><%= comment.comentario %></p>
-						</div>
-					</article>
-					<% } %>
-
-				</section>
-				<% if(locals.user){ %> 
-				<form class="form" action="/product/comment" method="POST">
-					<input class="form-input" type="text" name="comentario" placeholder="Agregar comentario">
-					<input type="hidden" name="idProduct" value="<%= productos.id %>">
-					<input type="hidden" name="idUser" value="<%= locals.user.id %>">
-					<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-				</form>
-				<% } %>
-					
 			
-					<form class="form" action="/product/id/<%=productos.id%>"  method="POST">
-						<input name="texto" class="form-input" type="text" value="" placeholder="Escribi tu comentario">
-						<input name="id_usuario" type="hidden" value="<%= productos.user.id  %> ">
-						<input name=id_producto" type="hidden" value="<%= productos.id  %> ">
-						<button type="submit" class="buy-now-button">Agregar comentario</button>
-					
-					</form>
-
-					<p> <%= productos.id_comentario%> </p>
-					<p> Hola </p>
 					<section class="comments">
 						<% for (let i = 0; i < productos.comment.length; i++) { %>
 							<article>
-								<img src= "/images/users/<%=productos.comment[i].usuario.foto%>" alt="img perfil">
+								<img src= "/images/users/<%=productos.comment[i].user.foto%>" alt="img perfil">
 								<div class="data">
 									<p class="user">
-									
+										<strong><%=productos.comment[i].user.usuario%></strong>
+										<%=productos.comment[i].texto%>
+										<%=productos.comment[i].created_at%>
+
 									</p>
 								</div>
 							</article>
 							<% } %>
 					</section>
 
+					<% if(locals.user){ %> 
+						<form class="form" action="/product/comment" method="POST">
+							<input class="form-input" type="text" name="texto" placeholder="Agregar comentario">
+							<input type="hidden" name="id_producto" value="<%= productos.id %>">
+							<input type="hidden" name="id_usuario" value="<%= locals.user.id %>">
+							<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+						</form>
+						<% } %>
 
 					
 					

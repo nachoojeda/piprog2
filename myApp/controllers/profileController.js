@@ -35,7 +35,9 @@ const profileController ={
       order:[["created_at","DESC"]]
   }
     usuario.findByPk(id, filtro)
+  
     .then(result=>{
+       
         return res.render("profile", {profile: result});
     })},
   login: (req,res) =>{
@@ -76,7 +78,7 @@ const profileController ={
             res.cookie('userId' , result.dataValues.id , {maxAge: 1000 * 60 * 5})
           }
 
-          return res.render('profile' , {profile: result}) 
+          return res.redirect('/users/profile/' + result.dataValues.id ) 
       }
        else {
         errors.message = "La clave es incorrecta"
@@ -224,11 +226,29 @@ const profileController ={
 
   update: (req,res) =>{
 
-    let profileEdited = req.body;
+  let profileEdited = req.body;
   
    let id = req.params.id
-  let foto = req.file.filename
-  let pass = bcryptjs.hashSync(profileEdited , 10)
+   let foto;
+
+   if (req.body.foto) {
+     foto = req.file.filename
+
+   } else{
+    foto = req.body.fotovieja
+   }
+  
+  
+  let pass; 
+   if (req.body.contrasenia == undefined) {
+    pass = req.body.contraseniavieja
+   } 
+
+   else {
+     pass = bcryptjs.hashSync(profileEdited.contrasenia , 10)
+   }
+
+
    usuario.update({
   
     nombre: profileEdited.nombre,
@@ -249,7 +269,7 @@ const profileController ={
     }
    )
    .then(()=>{
-    return res.render('/profile')
+    return res.redirect('/users/profile/' + id)
    })
   } 
 /*

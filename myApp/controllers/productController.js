@@ -14,13 +14,14 @@ const productController = {
     ], 
 
     order:[
-        ["created_at","DESC"]
+        ["comment" , "id","DESC"]
     ]
 }
  
   producto.findByPk(id ,filtro)
   
   .then(result=>{
+    
       return res.render("product", {productos: result});
   })
   .catch(error=>{
@@ -35,19 +36,24 @@ create: (req, res) => {
 store: function (req, res) {
   let info = req.body; //Guardamos los datos
 
-  let foto = req.file.filename;
-  
+
   let product = {//creamos la producto
 
     titulo: info.titulo,
     descripcion: info.descripcion,
-    foto: foto,
+    foto: "",
     created_at: info.created_at,
     id_usuario: req.session.user.id,
    
   } 
  
-
+if (!req.file ){
+  product.foto = "guitardef.jpeg"
+}
+else {
+product.foto = req.file.filename;
+  
+}
    /*  res.send(info)  */
     producto.create(product)
 
@@ -94,7 +100,8 @@ update: (req,res) =>{
     titulo: productEdited.titulo,
     descripcion: productEdited.descripcion,
     foto: foto,
-    created_at: productEdited.created_at
+    created_at: productEdited.created_at,
+    updated_at: Date.now()
    
   } ,
 
@@ -129,7 +136,6 @@ destroy:(req, res)=>{
 }
  ,
 
-<<<<<<< HEAD
  /* comments: (req, res) => {
   if (req.session.user = undefined) {
       res.redirect('/users/login');
@@ -138,37 +144,17 @@ destroy:(req, res)=>{
       texto: data.texto,
       id_producto: req.params.id,
       id_usuario: req.session.user.id,
-=======
- comments: (req, res) => {
-  let info = req.body
-  let errors = {}
-  if (req.session.user != undefined) {
-    
->>>>>>> 0cd4b1610a31f207ee8cbcfcba1f94a2fa76558c
       
       let createComment = {
       texto: info.texto,
       id_producto: info.id_producto,
       id_usuario: info.id_usuario
 
-<<<<<<< HEAD
  comentario.create(createComment)
       .then(data => {
           producto.findByPk(data.id)
               .then(result => {
                    return res.redirect("/product/id/"  + req.params.id)
-=======
-      
-      }
-  comentario.create(createComment)
-      .then(data => {
-          producto.findByPk(data.id)
-              .then(result => {
-                          return res.redirect("/product/id/"  + 
-                          
-                        createComment.id_producto
-                        )
->>>>>>> 0cd4b1610a31f207ee8cbcfcba1f94a2fa76558c
               })
 
 
@@ -182,19 +168,19 @@ destroy:(req, res)=>{
 },*/
 createComment: function (req, res) { 
   let info = req.body
-  let comentario = { // No ponemos el id porque es autoincremental
+  let comment = { // No ponemos el id porque es autoincremental
       // Saco los valores de info para llenar el objeto literal (email, etc.)
-      product_id : info.id_productos, // Tengo que ir a register.ejs para fijarme que name tiene en el input
-      user_id : info.id_usuario, // Tengo que ir a register.ejs para fijarme que name tiene en el input
-     comentario : info.comentario,
+      id_producto : info.id_producto, // Tengo que ir a register.ejs para fijarme que name tiene en el input
+      id_usuario : info.id_usuario, // Tengo que ir a register.ejs para fijarme que name tiene en el input
+     texto : info.texto,
       created_at : new Date(), // Esto no esta en info. Por eso voy a mySQL y me fijo que tipo de dato son
-      updated_at : new Date(), // new Date() es darle la fecha del dia de hoy
+      
   }
 
   /* Almacenando el registro del usuario */
-  db.Comentario.create(comentario)
+  comentario.create(comment)
   .then((result) =>{
-      return res.redirect("/product/"+info.id_Product) // Lo quiero redirigir para que se logee
+      return res.redirect("/product/id/"+info.id_producto) // Lo quiero redirigir para que se logee
   }).catch((err) => {
       console.error(err)
   }); // Creando el usuario en la base de datos

@@ -27,7 +27,9 @@
 					<% if (locals.errors) { %>
 						<p style="color: red"><%= locals.errors.message %> </p>
 					   <% } %>
-					
+					   <% if (!productos.length) { %>
+						<p style="color: red">No existen resultados para su criterio de busqueda </p>
+					   <% } %>
 							
 			<% for (let i = 0; i < productos.length; i++) { %>
 				<div class="col-12 col-sm-6 col-lg-3">

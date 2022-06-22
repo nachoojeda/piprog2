@@ -38,7 +38,7 @@ let storage = multer.diskStorage({
 let upload = multer({ storage : storage })
 
 
-router.get('/id/:id', upload.single('foto') , productController.show)
+router.get('/id/:id', productController.show)
 
 router.get('/product-add', productController.create)
 
@@ -50,8 +50,8 @@ router.post('/product-edit/:id',  upload.single('foto') , productController.upda
 
 router.get('/product-delete/:id', productController.destroy)
 
-router.post('/product/id/:id', productController.createComment)
-router.get('/users/login', productController.createComment)
+router.post('/comment', productController.createComment)
+
 
 
 

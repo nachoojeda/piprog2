@@ -32,31 +32,34 @@ const op = db.Sequelize.Op;
 
 const indexController = {
 
-    
-  index:(req,res) =>{
 
-   
+    index: (req, res) => {
 
-    producto.findAll(
-        ({include: ["user"]})
-        ,
-        {
-        order: [
-            ['created_at', 'DESC']
-        ], 
-        limit: 12}
-        )
-    
-    .then(data=>{
-      return res.render('index', {productos: data})
-    })
 
-    .catch(error=>{
-      return res.send(error)
-    })
-  },
 
-  /* gibson: (req,res) => {
+        producto.findAll(
+                ({
+                    include: ["user"]
+                }), {
+                    order: [
+                        ['created_at', 'DESC']
+                    ],
+                    limit: 12
+                }
+            )
+
+            .then(data => {
+                return res.render('index', {
+                    productos: data
+                })
+            })
+
+            .catch(error => {
+                return res.send(error)
+            })
+    },
+
+    /* gibson: (req,res) => {
 
     producto.findAll(
         { where : [ { titulo : {[op.like] : `%Gibson%` } } ]} 
@@ -70,37 +73,52 @@ const indexController = {
 
 
 
-  showOne : (req,res) => {
-    let busqueda = req.query.search;
-    let errors = {}
-    
-    producto.findAll(
-        
-        ({include: ["user"]})
-        ,{
+    showOne: (req, res) => {
+        let busqueda = req.query.search;
+        let errors = {}
 
-        where:{[op.or]:
-            [
-        {titulo: {[op.like]: `%${busqueda}%`}},
-        {descripcion:{[op.like]: `%${busqueda}%`}}
-            ]
-             }
+        producto.findAll({
+                include: [{
+                    association: 'user'
+                }, {
+                    association: 'comment',
+                    include: {
+                        association: 'user'
+                    }
+                }],
+
+                where: {
+                    [op.or]: [{
+                            titulo: {
+                                [op.like]: '%' + busqueda + '%'
+                            }
+                        },
+                        {
+                            descripcion: {
+                                [op.like]: '%' + busqueda + '%'
+                            }
+                        }
+                      
+                    ]
+                }
+
+            })
+
+            .then((result) => {
+                if (result == null) {
+
+                    errors.message = "Este producto no existe";
+                    res.locals.errors = errors;
+                    return res.render('search-results')
+                } else {
+
+                    return res.render("search-results", {
+                        productos: result
                     })
-    .then((result) => 
-    {
-        if (result == null) { 
-            
-            errors.message = "Este producto no existe";
-        res.locals.errors = errors;
-        return res.render('search-results') 
-            } 
-        else {
-            
-            return res.render("search-results" , {productos : result})
-        }
-        
-    })
-} 
+                }
+
+            })
+    }
 }
 
 module.exports = indexController;

@@ -24,7 +24,7 @@
 					
 					<h1 class="main-title"><%= profile.usuario %> 
 						
-						<% if (locals.user.id == profile.id) { %>
+						<% if (locals.user && locals.user.id == profile.id) { %>
 							<a href="/users/profile-edit/<%=profile.id %>">
 								<i class="fas fa-cog"></i>
 						<% } %>
@@ -72,7 +72,7 @@
 
 
 							
-							<% if (locals.user.id == profile.id) { %>
+							<% if (locals.user &&locals.user.id == profile.id) { %>
 								<a href="/product/product-edit/<%=profile.products[i].id%>">Modificar |</a>
 							<a href="/product/product-delete/<%=profile.products[i].id%>">| Eliminar</a>
 
