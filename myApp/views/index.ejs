@@ -42,11 +42,8 @@
 							<h2> <%= productos[i].titulo  %> </h2>
 							<p><%=productos[i].descripcion %> </p> 
 							
-						<p>Producto cargado por el usuario <a href="/users/profile/<%=productos[i].user.id%>"> "<%=productos[i].user.nombre%>"</a></p>	
+						<p>Producto cargado por el usuario <a href="/users/profile/<%=productos[i].user.id%>"> "<%=productos[i].user.usuario%>"</a></p>	
 
-							<a href="/product/product-edit/<%=productos[i].id%>">Modificar |</a>
-							
-							<a href="/product/product-delete/<%=productos[i].id%>">| Eliminar</a>
 						</article>
 					</a>
 				</section>
