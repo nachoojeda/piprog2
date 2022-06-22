@@ -66,7 +66,13 @@ product.foto = req.file.filename;
 edit: (req,res) =>{
   let id = req.params.id;
   let errors = {}
+  
+  if (req.body.foto) {
+    foto = req.file.filename
 
+  } else{
+   foto = req.body.fotovieja
+  }
   if (req.session.user != undefined) {
     producto.findByPk(id)
     .then((info)=>{
@@ -75,7 +81,7 @@ edit: (req,res) =>{
   
       titulo: info.titulo,
       descripcion: info.descripcion,
-      foto: info.foto,
+      foto: foto,
       created_at: info.created_at,
       id:id
       }
@@ -136,36 +142,6 @@ destroy:(req, res)=>{
 }
  ,
 
- /* comments: (req, res) => {
-  if (req.session.user = undefined) {
-      res.redirect('/users/login');
-
-    let createComment = {
-      texto: data.texto,
-      id_producto: req.params.id,
-      id_usuario: req.session.user.id,
-      
-      let createComment = {
-      texto: info.texto,
-      id_producto: info.id_producto,
-      id_usuario: info.id_usuario
-
- comentario.create(createComment)
-      .then(data => {
-          producto.findByPk(data.id)
-              .then(result => {
-                   return res.redirect("/product/id/"  + req.params.id)
-              })
-
-
-      })
-  } 
-  else {
-    errors.message = "Para Comentar un producto debes estar logueado";
-    res.locals.errors = errors;
-    return res.render('login')
-  }
-},*/
 createComment: function (req, res) { 
   let info = req.body
   let comment = { // No ponemos el id porque es autoincremental
