@@ -1,40 +1,25 @@
-/*const db = require('../db')
-
-const controller = { //objetos literales
-    index: function (req, res) {
-        //res.render('index',   {productos: db.products,comments: db.comentarios}) 
-    },
-    productAdd: function(req,res) {
-       // res.render('product-add',  {productos: db.products,comments: db.comentarios});
-      },
-      searchresults : function(req,res) {
-        res.render('search-results', {productos: db.products,comments: db.comentarios});
-      },
-    login: function (req,res) {
-        res.render('login')
-    },
-    register: function (req,res) {
-        res.render('register')
-    },
-    products: function (req,res) {
-      
-      //res.render('product', {productos: db.products, comments: db.comentarios})
-  },
-}*/
-
 const db = require('../database/models');
 
 const producto = db.Producto;
 const comentario = db.Comentario
-const usuario = db.Usuario
 const productController = {
   
    show: (req,res) => {
   let id = req.params.id; 
-  
+  let filtro = {
+    include: [
+        {association: "user"},
+        {association: "comment", include: "user"}
+
+    ], 
+
+    order:[
+        ["created_at","DESC"]
+    ]
+}
  
-  producto.findByPk(id , ({include: ["user"]})
-  ,)
+  producto.findByPk(id ,filtro)
+  
   .then(result=>{
       return res.render("product", {productos: result});
   })
