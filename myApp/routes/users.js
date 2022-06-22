@@ -44,7 +44,7 @@ router.get('/register', profileController.register);
 
 router.post('/register', upload.single('foto') , profileController.procesarRegister);
 
-router.get('/seguir/:id',profileController.seguir)
+
 
 
 module.exports = router;
