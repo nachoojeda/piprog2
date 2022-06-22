@@ -23,6 +23,7 @@ module.exports = controller; */
 const db = require('../database/models');
 
 const usuario = db.Usuario;
+const seguidor = db.Seguidor
 const bcryptjs = require("bcryptjs")
 
 const profileController ={
@@ -30,7 +31,7 @@ const profileController ={
   show: (req,res) => {
     let id = req.params.id; 
     let filtro = {
-      include: [ {association: "products"}, {association: "comments"} ], 
+      include: [ {association: "products"}, {association: "comments"} , {association: "followers"} ], 
       order:[["created_at","DESC"]]
   }
     usuario.findByPk(id, filtro)
@@ -92,9 +93,6 @@ const profileController ={
     }
   })
 }}
-
-
-
 ,
       
   logout: (req,res) => {
@@ -253,8 +251,24 @@ const profileController ={
    .then(()=>{
     return res.render('/profile')
    })
-  }  
+  } 
+/*
+   , 
+   seguir: (req,res) => {
+    let seguir = req.params.id
+    let data = req.body
 
+    let follower = {
+      id_usuario_seguido: data.id_usuario_seguido,
+      id_usuario_seguidor: data.id_usuario_seguidor,
+    }
+
+    seguidor.create(follower) 
+    .then((result) => {
+      return res.redirect('/')
+    })
+  }
+*/
 }
 
 

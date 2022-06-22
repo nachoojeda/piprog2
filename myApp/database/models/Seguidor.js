@@ -27,6 +27,16 @@ module.exports = function (sequelize, dataTypes) {
         underscored: true
     } ;
 
+
+
     const Seguidor = sequelize.define(alias,cols,config);
+
+    Seguidor.associate = function(models){
+        Seguidor.belongsTo(models.Usuario, {
+            as: 'follower',
+            foreignKey: 'id_usuario_seguido'
+        })
+
+    }
     return Seguidor
 }
