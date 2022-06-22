@@ -48,7 +48,7 @@ module.exports = function (sequelize, dataTypes) {
 
         },
 
-        seguidores: {
+        id_seguidor: {
             type: dataTypes.INTEGER
 
         },
@@ -86,7 +86,14 @@ module.exports = function (sequelize, dataTypes) {
         Usuario.hasMany(models.Comentario, {
             as: 'comments',
             foreignKey: 'id_usuario'
-        })
+        }),
+        Usuario.associate = function(models){
+            Seguidor.hasMany(models.Seguidor, {
+                as: 'followers',
+                foreignKey: 'id_usuario_seguidor'
+            })
+    
+        }
 
     }
 
