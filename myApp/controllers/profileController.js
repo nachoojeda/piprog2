@@ -226,7 +226,8 @@ const profileController ={
     let profileEdited = req.body;
   
    let id = req.params.id
-  
+  let foto = req.file.filename
+  let pass = bcryptjs.hashSync(profileEdited , 10)
    usuario.update({
   
     nombre: profileEdited.nombre,
@@ -234,9 +235,10 @@ const profileController ={
     email: profileEdited.email,
     usuario: profileEdited.usuario,
     fecha: profileEdited.fecha,
-    foto: profileEdited.foto,
-    contrasenia: profileEdited.contrasenia,
-    dni: profileEdited.dni
+    foto: foto,
+    contrasenia: pass,
+    dni: profileEdited.dni,
+    updated_at: new Date()
     
     } ,
   
@@ -246,7 +248,7 @@ const profileController ={
     }
    )
    .then(()=>{
-    return res.redirect('/')
+    return res.render('/profile')
    })
   }  
 

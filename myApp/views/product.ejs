@@ -35,18 +35,7 @@
 						</p>
 						
 				</article>
-				<section class="comments">
-					<% for (let i = 0; i < productos.comentarios; i++) { %>
-						<article>
-							<img src= "/images/users/<%=productos.comentarios[i].usuario.foto%>" alt="img perfil">
-							<div class="data">
-								<p class="user">
-								
-								</p>
-							</div>
-						</article>
-						<% } %>
-				</section>
+				
 		
 			<div class="col-12 col-lg-4">
 				
@@ -54,13 +43,26 @@
 			
 					<form class="form" action="/product/id/<%=productos.id%>"  method="POST">
 						<input name="texto" class="form-input" type="text" value="" placeholder="Escribi tu comentario">
+						<input name="id_usuario" type="hidden" value="<%= productos.user.id  %> ">
+						<input name=id_producto" type="hidden" value="<%= productos.id  %> ">
 						<button type="submit" class="buy-now-button">Agregar comentario</button>
 					
 					</form>
 
 					<p> <%= productos.id_comentario%> </p>
 					<p> Hola </p>
-
+					<section class="comments">
+						<% for (let i = 0; i < productos.comment.length; i++) { %>
+							<article>
+								<img src= "/images/users/<%=productos.comment[i].usuario.foto%>" alt="img perfil">
+								<div class="data">
+									<p class="user">
+									
+									</p>
+								</div>
+							</article>
+							<% } %>
+					</section>
 
 
 					

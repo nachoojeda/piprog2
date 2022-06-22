@@ -130,22 +130,26 @@ destroy:(req, res)=>{
  ,
 
  comments: (req, res) => {
-  if (req.session.user == undefined) {
-      res.redirect('(/users/login')
-
-    let createComment = {
-      texto: data.texto,
-      id_producto: req.params.id,
-      id_usuario: req.session.user.id,
+  let info = req.body
+  let errors = {}
+  if (req.session.user != undefined) {
+    
       
-  }
+      let createComment = {
+      texto: info.texto,
+      id_producto: info.id_producto,
+      id_usuario: info.id_usuario
 
+      
+      }
   comentario.create(createComment)
       .then(data => {
           producto.findByPk(data.id)
               .then(result => {
-                  
-                          return res.redirect("/product/id/"  + req.params.id)
+                          return res.redirect("/product/id/"  + 
+                          
+                        createComment.id_producto
+                        )
               })
 
 
