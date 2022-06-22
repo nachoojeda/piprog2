@@ -31,7 +31,7 @@ const profileController ={
   show: (req,res) => {
     let id = req.params.id; 
     let filtro = {
-      include: [ {association: "products"}, {association: "comments"} , {association: "followers"} ], 
+      include: [ {association: "products"}, {association: "comments"}], 
       order:[["created_at","DESC"]]
   }
     usuario.findByPk(id, filtro)
