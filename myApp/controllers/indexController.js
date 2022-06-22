@@ -38,6 +38,19 @@ const indexController = {
 
 
         producto.findAll(
+            {
+                include: [
+                    {association: "user"},
+        
+        
+                ], 
+            
+                order:[
+                    ["titulo" , "ASC"]
+                ] ,
+                limit: 12
+            }
+            /*
                 ({
                     include: ["user"]
                 }), {
@@ -45,7 +58,7 @@ const indexController = {
                         ['created_at', 'DESC']
                     ],
                     limit: 12
-                }
+                }*/
             )
 
             .then(data => {
