@@ -129,6 +129,7 @@ destroy:(req, res)=>{
 }
  ,
 
+<<<<<<< HEAD
  /* comments: (req, res) => {
   if (req.session.user = undefined) {
       res.redirect('/users/login');
@@ -137,14 +138,37 @@ destroy:(req, res)=>{
       texto: data.texto,
       id_producto: req.params.id,
       id_usuario: req.session.user.id,
+=======
+ comments: (req, res) => {
+  let info = req.body
+  let errors = {}
+  if (req.session.user != undefined) {
+    
+>>>>>>> 0cd4b1610a31f207ee8cbcfcba1f94a2fa76558c
       
-  }
+      let createComment = {
+      texto: info.texto,
+      id_producto: info.id_producto,
+      id_usuario: info.id_usuario
 
+<<<<<<< HEAD
  comentario.create(createComment)
       .then(data => {
           producto.findByPk(data.id)
               .then(result => {
                    return res.redirect("/product/id/"  + req.params.id)
+=======
+      
+      }
+  comentario.create(createComment)
+      .then(data => {
+          producto.findByPk(data.id)
+              .then(result => {
+                          return res.redirect("/product/id/"  + 
+                          
+                        createComment.id_producto
+                        )
+>>>>>>> 0cd4b1610a31f207ee8cbcfcba1f94a2fa76558c
               })
 
 

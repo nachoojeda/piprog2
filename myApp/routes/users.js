@@ -30,7 +30,7 @@ let upload = multer({ storage : storage })
 
 router.get('/profile-edit/:id', profileController.edit)
 
-router.post('/profile-edit/:id',upload.single('foto'),profileController.update)
+router.post('/profile-edit/:id' , upload.single('foto') , profileController.update)
 
 
 router.get('/profile/:id', upload.single('foto') ,profileController.show);
@@ -43,6 +43,7 @@ router.post('/login', profileController.procesarLogin);
 router.get('/register', profileController.register);
 
 router.post('/register', upload.single('foto') , profileController.procesarRegister);
+
 
 
 

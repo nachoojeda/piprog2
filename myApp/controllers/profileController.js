@@ -23,14 +23,18 @@ module.exports = controller; */
 const db = require('../database/models');
 
 const usuario = db.Usuario;
+const seguidor = db.Seguidor
 const bcryptjs = require("bcryptjs")
 
 const profileController ={
 
   show: (req,res) => {
     let id = req.params.id; 
-   
-    usuario.findByPk(id)
+    let filtro = {
+      include: [ {association: "products"}, {association: "comments"}], 
+      order:[["created_at","DESC"]]
+  }
+    usuario.findByPk(id, filtro)
     .then(result=>{
         return res.render("profile", {profile: result});
     })},
@@ -89,9 +93,6 @@ const profileController ={
     }
   })
 }}
-
-
-
 ,
       
   logout: (req,res) => {
@@ -226,7 +227,8 @@ const profileController ={
     let profileEdited = req.body;
   
    let id = req.params.id
-  
+  let foto = req.file.filename
+  let pass = bcryptjs.hashSync(profileEdited , 10)
    usuario.update({
   
     nombre: profileEdited.nombre,
@@ -234,9 +236,10 @@ const profileController ={
     email: profileEdited.email,
     usuario: profileEdited.usuario,
     fecha: profileEdited.fecha,
-    foto: profileEdited.foto,
-    contrasenia: profileEdited.contrasenia,
-    dni: profileEdited.dni
+    foto: foto,
+    contrasenia: pass,
+    dni: profileEdited.dni,
+    updated_at: new Date()
     
     } ,
   
@@ -246,10 +249,26 @@ const profileController ={
     }
    )
    .then(()=>{
-    return res.redirect('/')
+    return res.render('/profile')
    })
-  }  
+  } 
+/*
+   , 
+   seguir: (req,res) => {
+    let seguir = req.params.id
+    let data = req.body
 
+    let follower = {
+      id_usuario_seguido: data.id_usuario_seguido,
+      id_usuario_seguidor: data.id_usuario_seguidor,
+    }
+
+    seguidor.create(follower) 
+    .then((result) => {
+      return res.redirect('/')
+    })
+  }
+*/
 }
 
 

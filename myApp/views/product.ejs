@@ -19,9 +19,14 @@
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"><%=productos.titulo  %></h2>
 			<p class="product-detail-description">
-				<a href="/product/product-edit/<%= productos.id  %> ">Editar</a>
+				<% if (locals.user.id == productos.user.id) { %>
+					<a href="/product/product-edit/<%= productos.id  %> ">Editar</a>
+					|
+					<a href="/product/product-delete/<%=productos.id%>">Eliminar</a>
+				<% } %>
+				
 			</p>
-			
+		
 		</div>
 		
 		<div class="product-detail">
@@ -31,22 +36,11 @@
 					<p class="product-detail-description">
 						<%=productos.descripcion %>
 						<br>
-						Producto cargado por el usuario <a href="/users/profile/<%=productos.user.id%>"> "<%=productos.user.nombre%>"</a>
+						Producto cargado por <a href="/users/profile/<%=productos.user.id%>"> "<%=productos.user.nombre%> <%=productos.user.apellido%>"</a>
 						</p>
 						
 				</article>
-				<section class="comments">
-					<% for (let i = 0; i < productos.comentarios; i++) { %>
-						<article>
-							<img src= "/images/users/<%=productos.comentarios[i].usuario.foto%>" alt="img perfil">
-							<div class="data">
-								<p class="user">
-								
-								</p>
-							</div>
-						</article>
-						<% } %>
-				</section>
+				
 		
 			<div class="col-12 col-lg-4">
 				<section class="comments">
@@ -75,13 +69,26 @@
 			
 					<form class="form" action="/product/id/<%=productos.id%>"  method="POST">
 						<input name="texto" class="form-input" type="text" value="" placeholder="Escribi tu comentario">
+						<input name="id_usuario" type="hidden" value="<%= productos.user.id  %> ">
+						<input name=id_producto" type="hidden" value="<%= productos.id  %> ">
 						<button type="submit" class="buy-now-button">Agregar comentario</button>
 					
 					</form>
 
 					<p> <%= productos.id_comentario%> </p>
 					<p> Hola </p>
-
+					<section class="comments">
+						<% for (let i = 0; i < productos.comment.length; i++) { %>
+							<article>
+								<img src= "/images/users/<%=productos.comment[i].usuario.foto%>" alt="img perfil">
+								<div class="data">
+									<p class="user">
+									
+									</p>
+								</div>
+							</article>
+							<% } %>
+					</section>
 
 
 					
