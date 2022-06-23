@@ -39,7 +39,6 @@ const indexController = {
 
     showOne: (req, res) => {
         let busqueda = req.query.search;
-        let errors = {}
 
         producto.findAll({
                 include: [{
@@ -69,17 +68,11 @@ const indexController = {
             })
 
             .then((result) => {
-                if (result == null) {
-
-                    errors.message = "Este producto no existe";
-                    res.locals.errors = errors;
-                    return res.render('search-results')
-                } else {
-
+            
                     return res.render("search-results", {
                         productos: result
                     })
-                }
+                
 
             })
     }
