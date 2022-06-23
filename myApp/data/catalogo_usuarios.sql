@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `catalogo` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `catalogo`;
 -- MySQL dump 10.13  Distrib 8.0.29, for macos12 (x86_64)
 --
 -- Host: 127.0.0.1    Database: catalogo
@@ -48,7 +50,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (45,'Nacho','Ojeda','no@udesa.com','Nachin','1999-03-20','foto-1655928912789.jpg','$2a$10$L2LQ2XffQsTALsJNrxRIm.etz3pcVTZyxsAxpGIj1b03sVz12860.',41605023,NULL,NULL,NULL,'2022-06-22','2022-06-22','0'),(46,'Segundo','Benito','sb@udesa.com','Seggy','2002-04-10','foto-1655928972404.webp','$2a$10$Z49s3NLu7D713MCqau5g1uUcAc.5Ct.768iX4vplQ29ZBdvaNudfa',123456789,NULL,NULL,NULL,'2022-06-22','2022-06-22','0'),(47,'Franco','Ferrero','FF@udesa.com','Frank','2000-01-01','foto-1655929037325.jpeg','$2a$10$k9SAsEgpDk7hAMeA3PR2qeIKTPWc2oUjs.46Y/76XL7zhLirqeigm',987654321,NULL,NULL,NULL,'2022-06-22','2022-06-22','0');
+INSERT INTO `usuarios` VALUES (45,'Nacho','Ojeda','no@udesa.com','Nachin','1999-03-20','foto-1655928912789.jpg','$2a$10$L2LQ2XffQsTALsJNrxRIm.etz3pcVTZyxsAxpGIj1b03sVz12860.',41605023,NULL,NULL,NULL,'2022-06-22','2022-06-22','0'),(46,'Segundo','Benito','sb@udesa.com','Seggy','2002-04-10','foto-1655928972404.webp','$2a$10$Z49s3NLu7D713MCqau5g1uUcAc.5Ct.768iX4vplQ29ZBdvaNudfa',123456789,NULL,NULL,NULL,'2022-06-22','2022-06-22','0'),(47,'Franco','Ferrero','FF@udesa.com','Frank','2000-01-01','foto-1655929037325.jpeg','$2a$10$cYrNzu9m3Ek5bv92XwGIluQlFAdK3zwMQtnIW38G5EPYCdjpIq8qa',987654321,NULL,NULL,NULL,'2022-06-22','2022-06-23','0');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -61,4 +63,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-22 18:38:44
+-- Dump completed on 2022-06-23 14:33:23
